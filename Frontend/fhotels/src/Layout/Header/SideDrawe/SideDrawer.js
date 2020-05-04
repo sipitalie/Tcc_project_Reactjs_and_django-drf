@@ -11,7 +11,7 @@ const sideDrawer = props =>{
         <ul>
             <li><a href="/">Sig in</a></li>
             <li><a href="/">logout</a></li>
-            <li><a href="/">login</a></li>
+            
         </ul>
 
     </nav>
@@ -19,3 +19,4 @@ const sideDrawer = props =>{
     )
 };
 export default sideDrawer;
+//<li><a href="/">login</a></li>

@@ -1,13 +1,31 @@
-html{
-    height: 100%;
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
-}
-
-body{
-    margin:0;
+*{
+    margin: 0;
     padding: 0;
-    font-family:sans-serif;
-    height: 100%;
+    box-sizing: border-box;
+}
+body{
+    font: 400 14px Roboto, sans-serif;
+    background: #f0f0f5;
+    -webkit-font-smoothing: antialiased;
+}
+input, button, textarea{
+    font: 400 18px Roboto, sans-serif;
+
+}
+button{ 
+    cursor: pointer;
 }
 
+form textarea{
+    width: 100%;
+    min-height: 140px;
+    resize: vertical;
+    color:#333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 16px 24px;
+    line-height: 24px;  
+}
 
