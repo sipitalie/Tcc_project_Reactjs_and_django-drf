@@ -4,7 +4,7 @@ from .serializer import (UserSrializer,
      RegisterSerializer, 
      AccountPropertiesSerializer, 
      ChangePasswordSerializer, 
-     #PasswordResetSerializer,
+     PasswordResetSerializer,
      #PasswordResetConfirmSerializer,
      )          
 from rest_framework.permissions import IsAuthenticated
@@ -170,7 +170,7 @@ def update_account_view(request):
             return Response(data=data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-"""
+
 
 @api_view(['POST',])
 @permission_classes([]) 
@@ -200,7 +200,7 @@ def ResetPassword_view(request):
     #serializer = self.get_serializer(data=request.data)
     #serializer=PasswordResetSerializer(data=request.data)
     #return Response({'message': 'ola', 'email':email})
-
+"""
 @api_view(['POST',])
 @permission_classes([]) 
 @authentication_classes([])
