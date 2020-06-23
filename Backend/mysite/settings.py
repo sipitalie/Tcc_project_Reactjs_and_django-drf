@@ -22,7 +22,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'account',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,6 +32,17 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'corsheaders',
+    'alojamento',
+    'eventos',
+    'avaliacao',
+    'comentarios',
+    'promocoes',
+    'quartos',
+    'reclamacoes',
+
+
+
+
 
 ]
 

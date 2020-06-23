@@ -45,6 +45,7 @@ class  ChangePasswordSerializer(serializers.Serializer):
     new_password=serializers.CharField(required=True)
     confirm_new_password=serializers.CharField(required=True)
 
+
 #class PasswordResetSerializer(serializers.Serializer):
 #    email = serializers.EmailField(required=True)
 
