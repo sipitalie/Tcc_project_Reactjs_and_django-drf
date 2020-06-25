@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from avaliacao.models import Avaliacao
+#from avaliacao.models import Avaliacao
 #from comentarios.models import Comentario
 
 
@@ -26,12 +26,8 @@ class Alojamento (models.Model):
     nome=models.CharField(max_length=50)
     Type_Alojamento=models.CharField(choices=Type, max_length=20)
     Estrela=models.IntegerField(choices=estrela)
-    #avaliacoes=models.ManyToManyField(Avaliacao)
-    #comentarios = models.ForeignKey(Comentario, on_delete=models.CASCADE,null=True, blank=True)
-    
     Aprovado=models.BooleanField(default=True)
     data=models.DateField(auto_now_add=True)
-
     pais=models.CharField(max_length=50)
     Provincia=models.CharField(max_length=150)
     cidade=models.CharField(max_length=50)
