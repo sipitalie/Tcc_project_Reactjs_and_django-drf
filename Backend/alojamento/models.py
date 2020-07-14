@@ -1,10 +1,5 @@
 from django.db import models
 from django.conf import settings
-#from avaliacao.models import Avaliacao
-#from comentarios.models import Comentario
-
-
-# Create your models here.
 
 #tipo
 Type=(('Hotel','Hotel'),

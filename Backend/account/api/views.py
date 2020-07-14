@@ -49,6 +49,7 @@ def cadastro_view(request):
         if serializer.is_valid():
             account=serializer.save()
             data['response']='cadastro feito com sucesso'
+            data['id']=account.id
             data['email']=account.email
             data['username']=account.username
             data['token']=Token.objects.get(user=account).key

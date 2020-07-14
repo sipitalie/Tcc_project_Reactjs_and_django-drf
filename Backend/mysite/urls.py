@@ -10,8 +10,13 @@ urlpatterns = [
     path('api/account/',include('account.api.urls')),
 
 
-    path('api/alojamentos/',include('alojamento.api.urls')),
-    path('api/alojamentos/',include('avaliacao.api.urls')),
+    path('api.v1/',include('alojamento.api.urls')),
+    path('api.v1/',include('avaliacao.api.urls')),
+    path('api.v1/',include('comentarios.api.urls')),
+    path('api.v1/',include('eventos.api.urls')),
+    path('api.v1/',include('promocoes.api.urls')),
+    path('api.v1/',include('quartos.api.urls')),
+    path('api.v1/',include('reclamacoes.api.urls')),
 
 
     path('account/', include('django.contrib.auth.urls')),

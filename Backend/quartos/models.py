@@ -19,7 +19,7 @@ type_quarto=(
 
 
 class Quarto(models.Model):
-    hotel=models.ManyToManyField(Alojamento)
+    hotel_owner=models.ForeignKey(Alojamento, on_delete=models.CASCADE)
     Caract_bedroom=models.CharField(choices=Caracterizacao, max_length=10)
     type_bedroom= models.CharField(choices=type_quarto, max_length=20)
     data_de_criacao=models.DateField(auto_now_add=True)

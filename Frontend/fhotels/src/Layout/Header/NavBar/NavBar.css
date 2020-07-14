@@ -54,12 +54,12 @@
     color: #fa923f;
 }
 
-@media (max-width:768px){
+@media (max-width:760px){
     .navbar_navgation_items{
         display: none;
     }
 }
-@media (min-width:769px){
+@media (min-width:761px){
     .navbar_toggle_button{
         display: none;
     }
