@@ -1,6 +1,7 @@
 from account.models import Account
 from django.contrib.auth import password_validation
 from rest_framework import serializers
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.auth.forms import PasswordResetForm
 from django.utils.translation import gettext as _
 from django.conf import settings

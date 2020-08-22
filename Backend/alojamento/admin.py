@@ -3,3 +3,4 @@ from .models import Alojamento
 # Register your models here.
 
 admin.site.register(Alojamento)
+

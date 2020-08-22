@@ -1,0 +1,125 @@
+.container{
+    min-height: 100vh;
+    display:  flex;
+    justify-content: center;
+    flex-direction: column;;
+    align-items: center;
+    padding: 80px 0;
+    
+}
+
+
+/*
+.Slider{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    
+}
+
+.Slide{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    overflow: hidden;
+    
+}
+
+
+
+
+
+%btn-styles{
+    position: absolute;
+    width: 100px;
+    height: 5% ;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    
+    &:hover{
+        background: rgba(0,0,0,0.356);
+        height: 10% ;
+        border-radius: 5%;
+        cursor: pointer;
+        div{
+            color: white;  
+        }
+    }
+}
+#goLeft{
+    left: 20px;
+    @extend %btn-styles;
+    
+}
+#goRight{
+    right: 50.2%;
+    @extend %btn-styles;
+}
+#expandSlider{
+    @extend %btn-styles;
+    right: 50.2%;
+    margin-top: 110px;
+
+}
+
+.span-goRight{
+    width: 100px;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    margin-top: 80px;
+   
+}
+.span-expandSlide{
+    width: 100px;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    margin-top: 110px;
+}
+
+span{
+    position: absolute;
+    width: 100px;
+    height: 10% ;     
+}
+.span-goLeft{
+    width: 100px;
+    height: 10% ;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;   
+}
+
+
+
+
+
+*/
+
+
+
+
+
+

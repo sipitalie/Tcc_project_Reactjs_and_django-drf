@@ -1,24 +1,23 @@
 import React,{useEffect} from 'react';
-import Alojamento from '../../components/Hotel';
-
+import './Home.scss';
 import {useSelector, useDispatch} from 'react-redux';
+import {get_all_alojamentos} from '../../store/fetchActions';
 
-import {getAllAlojamentos} from '../../store/fetchActions';
-import './Home.css';
+import Card from "../../components/Card/Card";
+export default function Cards() {
 
-
-export default function List() {
     const alojamento= useSelector((state) =>(state.Alojamento));
     const dispatch =useDispatch();
     
     useEffect( () => {
-        dispatch(getAllAlojamentos());
-
+        dispatch(get_all_alojamentos());
     },[dispatch]);
 
 	return (
+        
 		<div className="container">
-            {alojamento.map((alojamentos, index)=> <Alojamento key ={index} alojamento={alojamentos} />)}
+                {alojamento.map((alojamentos, index)=>  <Card key ={index} alojamento={alojamentos} />)} 
 		</div>
-	);
+
+    );
 }

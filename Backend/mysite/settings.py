@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'promocoes',
     'quartos',
     'reclamacoes',
+    'ImagensPerfil',
 
 
 
@@ -54,6 +55,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
 
 AUTH_USER_MODEL = 'account.Account'
 
@@ -153,5 +159,9 @@ CSRF_COOKIE_NAME = "csrftoken"
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT='imagens'
+MEDIA_URL='/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 CORS_ORIGIN_ALLOW_ALL = True

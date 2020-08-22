@@ -17,6 +17,7 @@ urlpatterns = [
     path('api.v1/',include('promocoes.api.urls')),
     path('api.v1/',include('quartos.api.urls')),
     path('api.v1/',include('reclamacoes.api.urls')),
+    path('api.v1/',include('ImagensPerfil.api.urls')),
 
 
     path('account/', include('django.contrib.auth.urls')),

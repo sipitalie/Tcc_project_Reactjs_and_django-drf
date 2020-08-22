@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+#from ImagensPerfil.models import Imagens
 
 #tipo
 Type=(('Hotel','Hotel'),
@@ -16,6 +17,7 @@ estrela=(
     (4,'4 estrelas'),
     (5,' 5 estrelas'),
 )
+
 class Alojamento (models.Model):
     owner=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nome=models.CharField(max_length=50)
@@ -29,7 +31,8 @@ class Alojamento (models.Model):
     linha=models.CharField(max_length=150)
     latitude=models.FloatField()
     longitude=models.FloatField()
-    #imags=models.ImageField(upload_to='Pontos_turisticos',null=True, blank=True) 
+    foto=models.ImageField(upload_to='imagens/perfil_home_alojamento',null=True, blank=True)
+   
     def __str__(self):
         return self.nome
 

@@ -1,7 +1,8 @@
 import React, { useState} from 'react';
 import {useDispatch} from 'react-redux'
 import {authLogin} from '../../../store/fetchActions';
-import { Link, useHistory} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+//import { Link, useHistory} from 'react-router-dom';
 
 
 import './Login.css';
@@ -11,7 +12,7 @@ export default function Login(){
     //const [token, setToken] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    //const history = useHistory();
     const dispatch = useDispatch();
 
     function handleLogin(e){
@@ -29,52 +30,53 @@ export default function Login(){
     }
     
     return(
+        <section>
+            <form className='login-container' onSubmit ={handleLogin}>
+                <div className = 'class-icon-login'>
+                    <h1>Login</h1>
+                </div>
+            
+                <div className = 'class-email'>              
+                    <input 
+                        placeholder ="E-mail"
+                        value = {username}
+                        required 
+                        type ='email'
+                        onChange ={e => setUsername(e.target.value)}
+
+                    />
+                </div>
+
+                <div className = 'class-password'>
+                    <input 
+                        placeholder ="Password"
+                        value = {password}
+                        required
+                        type ='password'
+                        onChange ={e => setPassword(e.target.value)}
+                    />
+                </div>
+
+                <div className='button-class'>
+                    <button type ="submit"> Entrar </button>
+                </div>
+            
+                <div className ="class-link-forgot">
+                    <Link  className="forgotPassword-link" to="/ForgotPassword">Esqueci minha senha?</Link>
+                </div> 
+                <div className ="Ainda-não-possui-conta">
+                    <span>Ainda não possui conta no hotels.me ?</span>
+                </div>
+
+                <div className ="class-link">
+                     <Link  className="siginup-link" to="/register"> Cadastre-se agora </Link>
+                </div>
+            
+            </form>
+
+        </section>
         
-        <form className='login-container'
-            onSubmit ={handleLogin}>
-            <div className = 'class-icon-login'>
-                <h1>Login</h1>
-            </div>
-            
-            <div className = 'class-email'>              
-                <input 
-                    placeholder ="E-mail"
-                    value = {username}
-                    required 
-                    type ='email'
-                    onChange ={e => setUsername(e.target.value)}
-                    
-                />
-            </div>
-
-            <div className = 'class-password'>
-                <input 
-                    placeholder ="Password"
-                    value = {password}
-                    required
-                    type ='password'
-                    onChange ={e => setPassword(e.target.value)}
-                />
-            </div>
-
-            <div className='button-class'>
-                <button type ="submit"> Entrar </button>
-
-            </div>
-            
-            <div className ="class-link-forgot">
-                <Link  className="forgotPassword-link" to="/Forgot">
-                    Forgot password?
-                </Link>
-            </div>
-
-            <div className ="class-link">
-                <Link  className="siginup-link" to="/register">
-                    Sigin Up
-                </Link>
-            </div>
-            
-        </form>
+        
        
     );
 }

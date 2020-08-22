@@ -182,13 +182,11 @@ def ResetPassword_view(request):
         serializer= PasswordResetSerializer(data=request.data)
         if serializer.is_valid():
             email= serializer.data['email']
-            print(email)
             if validate_email(email) == None:
                 data['error_message']='O email não faz parte da lista dos nossos usuarios.'
                 data['response']='Error'
                 return Response(data, status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
-                print(email)
                 data['message']='Mais instruções serão enviadas para o email, verifique sua caixa de entradas.'
                 data['response']=email
                 return Response(data, status=status.HTTP_200_OK)

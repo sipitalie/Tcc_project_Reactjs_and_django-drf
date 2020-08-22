@@ -5,57 +5,135 @@
     width: 100%;
     background: #521751;
     height: 60px;
+    
 
 }
 .navbar_navegation{
     display: flex;
     height: 100%;
+    color: #ffffff;
+    text-decoration: none;
     align-items: center;
     padding: 0 1rem;
+    
 
+}
+.navbar-element{
+    display: flex;
+    height: 100%;
+    color: #ffffff;
+    text-decoration: none;
+    align-items: center;
+    padding: 0 1rem;
 }
 .navbar_logo { 
     margin-left: 1rem;
-}
+}         
 .navbar_logo a { 
     color: #ffffff;
     text-decoration: none;
     font-size: 2rem;
 
 }
-           
-.navbar_logo a { 
+.userIcon { 
+    margin-left: 1rem;
+}         
+.userIcon a { 
     color: #ffffff;
     text-decoration: none;
     font-size: 2rem;
 
 }
-.spacer{
+
+.NotificationIcon {
+    margin-left: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 2rem;
+
+}
+
+.Registrar-alojamento a{
+    margin-left: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 2rem;
+     height: 50px;
+    width: 40px;
+    cursor: pointer;
+
+}
+.Registrar-alojamento  :hover{
+    background-color: dimgrey;
+    border-radius: 10px;
+   
+}
+.espacer{
     flex: 1;
 }
-.navbar_navgation_items ul{
+
+.Event_prom ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
-.navbar_navgation_items li{
-
+.Event_prom li{
+    color: #ffffff;
+    text-decoration: none;
     padding: 0 0.5rem;
-  
 }
-.navbar_navgation_items a{
+
+.Event_prom a{
+    color:white;
+    
+    text-decoration: none;
+    margin-right: 10px;
+}
+.Event_prom  a:hover,
+.Event_prom  a:active{
+    color: #fa923f;
+   
+    border-radius: 3px;
+}
+.User-profile{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+.login-sigin_up ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+.login-sigin_up li{
+    list-style: none;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 0.5rem;
+    border-radius: 2px;
+}
+.login-sigin_up a{
     color:white;
     text-decoration: none;
     margin-right: 10px;
 }
-.navbar_navgation_items a:hover,
-.navbar_navgation_items a:active{
+.login-sigin_up a:hover,
+.login-sigin_up a:active{
     color: #fa923f;
+    
 }
 
+
 @media (max-width:760px){
-    .navbar_navgation_items{
+    .navbar-element{
+        display: none;
+    }
+    .Event_prom {
         display: none;
     }
 }

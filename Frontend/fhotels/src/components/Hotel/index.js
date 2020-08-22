@@ -1,27 +1,20 @@
 import React from 'react';
 import {FiMapPin,FiStar} from 'react-icons/fi';
-
-
-import logoImg from '../../assets/logo.png'
-
-
+import Slider from '../Card/Slideshow/Slideshow';
 
 export default function Alojamento({ alojamento }) {
-    console.log(alojamento);
 	return (
 		<div className="container-home">
 			<ul>
 				<li className="class-imagem">
-					<img src = {logoImg} alt =" Imagens" />
+					<Slider/>
 				</li>
 				<li>
 					<h1>{alojamento.nome}</h1>
 					<p className="class-tipo">
 						Tipo: {alojamento.Type_Alojamento}
 					</p>	
-					<p className="class-texto">
-						{alojamento.linha}
-					</p>
+				
 					<p className="class-endereço">
 					<FiMapPin/> {alojamento.cidade}
 						, {alojamento.Provincia}, {alojamento.pais}</p>
@@ -45,4 +38,3 @@ export default function Alojamento({ alojamento }) {
 		</div>
 	);
 }
-

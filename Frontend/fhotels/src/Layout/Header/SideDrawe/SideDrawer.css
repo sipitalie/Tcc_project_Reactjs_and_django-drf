@@ -3,9 +3,9 @@
     background: white;
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
     position: fixed;
-    top:0;
+    top:60px;
     left: 0;
-    width: 240px;
+    width: 50%;
     max-width: 400px;
     z-index: 200;
     transform: translateX(-100%);
@@ -13,24 +13,34 @@
 }
 .side-drawer.open{
     transform: translateX(0);
+    
 
 }
-
 .side-drawer ul{
     list-style: none;
     display: flex;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(74, 20, 82, 0.466);
     flex-direction: column;
     justify-content: center;
 }
 .side-drawer li{
     margin: 0.5rem 0;
 }
-.side-drawer a{
+.side-drawer ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 20px;
+    padding-left: 10px;
     color:#521751;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
-.side-drawer a:hover,
+.side-drawer a:hover{
+    color:#fa923f
+}
+
 .side-drawer a:active{
     color:#fa923f
 }

@@ -1,0 +1,369 @@
+.product-card{
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 600px;
+}
+.left-column-img{
+    width: 50%;
+    height: 270px;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.3),
+    0 -15px 35px rgba(0, 0, 0, 0.1),
+    0 15px 35px rgba(0, 0, 0, 0.7);
+}
+.class-img-slide{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center; 
+}
+
+.img-perfil{
+    width: 100%;
+    position: absolute;
+}
+
+
+.right-column-inf0{
+    width: 50%;
+    background-color: #fff;
+    padding: 10px 10px;
+    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.1),
+     0 -15px 35px rgba(0, 0, 0, 0.1),
+     0 15px 35px rgba(0, 0, 0, 0.1);   
+}
+
+.nome {
+    padding: 0 0 10px 0;
+}
+
+.nome div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    
+}
+.nome div a{
+    text-decoration: none;  
+    color: rgb(65, 62, 62) ;
+    
+}
+.nome div .big{
+   
+    font-size: 1.5rem;
+    margin-right: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.tipo{
+    color: #3a3a3a;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    
+}
+
+.localizado{
+    color: #3a3a3a;
+    font-weight: 400;
+    font-size: 0.9rem;
+    display: flex;
+    width: 80%;
+    
+}
+.localizado button{
+    margin-right: 5px;
+    width: 20px;
+    transition: .5s;
+}
+.localizado  button {
+    background: none;
+    border: 0;
+    transition: .3s;
+    cursor: pointer;
+}
+.localizado button:hover{
+    transform: scale(1.1);
+    
+}
+.dercricão , .class-follow-Followers-star{
+    border-bottom: 1px solid #dadada;
+    padding: 5px 0;
+
+}
+.dercricão-info{
+    color: #555;
+    font-size: 15px;
+}
+
+.class-follow-Followers-star{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+
+}
+.class-star{
+    padding: 5px 0;
+    align-items: center;
+    
+}
+.class-star-5 {
+    display: flex;
+    align-items: center;
+    color:  #521751;
+}
+.class-star-5 div{
+    color:  #521751;
+    border-color: black;
+}
+
+#follow{
+    border: 0;
+    padding: .4rem 1.4rem;
+    border-radius: 5px;
+    background-color:  #521751;
+    transition: .5s;
+    cursor: pointer;
+
+}
+
+#follow div{
+    color: #fff;
+
+}
+.class-follow-Followers-star  button:hover{
+    transform: scale(1.1);
+    
+}
+.class-wifi-restaurant-gym{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    cursor: pointer;
+    
+}
+
+@media (max-width: 700px){
+    .product-card{
+        width: 300px;
+        flex-direction: column;
+    }
+    .right-column-inf0{
+        width: 100%;
+    }
+    .nome div .big{
+        font-size: 1rem;
+
+    }
+    #follow{
+        padding: .3rem 1.4rem;
+            
+    }
+    .class-follow-Followers-star{
+        width: 100%;
+        padding: 10px 0;
+        cursor: pointer;
+    
+    }
+    .localizado{
+        color: #3a3a3a;
+        font-weight: 400;
+        font-size: 0.9rem;
+        display: flex;
+        width: 75%;
+        margin-right: 10px;
+        
+    }
+    .left-column-img{
+        width: 100%;
+        height: auto;
+    }
+       
+
+}
+@media (max-width: 414px){
+    .container{
+        min-height: 100vh;
+        display:  flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;    
+    }
+    .product-card{
+        width: 360px;
+        flex-direction: column;
+    }
+    .right-column-inf0{
+        width: 100%;
+    }
+    .nome div .big{
+        font-size: 1rem;
+
+    }
+    #follow{
+        padding: .3rem 1.4rem;
+            
+    }
+    .class-follow-Followers-star{
+        width: 100%;
+        padding: 10px 0;
+        cursor: pointer;
+    
+    }
+    .localizado{
+        color: #3a3a3a;
+        font-weight: 400;
+        font-size: 1rem;
+        display: flex;
+        width: 100%;
+        
+    }
+}
+
+@media (max-width: 360px){
+    .container{
+        padding: 50px 0;  
+    }
+    .product-card{
+        width: 350px;
+        flex-direction: column;
+    }
+    .right-column-inf0{
+        width: 100%;
+    }
+
+    .nome div .big{
+        font-size: 1rem;
+
+    }
+    #follow{
+        padding: .3rem 1.4rem;
+            
+    }
+    .class-follow-Followers-star{
+        width: 100%;
+        padding: 10px 0;
+        cursor: pointer;
+           
+    }
+    .localizado{
+        color: #3a3a3a;
+        font-weight: 400;
+        font-size: 1rem;
+        display: flex;
+        width: 100%;
+        
+    }
+    .left-column-img{
+        width: 100%;
+        height: auto;   
+        box-shadow: -15px 0 35px rgba(0, 0, 0, 0.1),
+        0 -15px 35px rgba(0, 0, 0, 0.1),
+        0 15px 35px rgba(0, 0, 0, 0.1);
+       
+    }
+
+}
+
+@media (max-width: 320px){
+    .container{
+        min-height: 100vh;
+        display:  flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+    }
+    .product-card{
+        width: 305px;
+        flex-direction: column;
+    }
+    .right-column-inf0{
+        width: 100%;
+    }
+
+    .nome div .big{
+        font-size: 1rem;
+
+    }
+    #follow{
+        padding: .3rem 1.4rem;
+            
+    }
+    .class-follow-Followers-star{
+        width: 100%;
+        padding: 10px 0;
+        cursor: pointer;
+    
+    }
+    .localizado{
+        color: #3a3a3a;
+        font-weight: 400;
+        font-size: 0.9rem;
+        display: flex;
+        width: 100%;
+        
+    }
+    .left-column-img{
+        width: 100%;
+        height: 200px;
+    }
+
+}
+
+
+@media (max-width: 319px){
+    .container{
+        min-height: 100vh;
+        display:  flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+    }
+    .product-card{
+        width: 280px;
+        flex-direction: column;
+    }
+    .right-column-inf0{
+        width: 100%;
+    }
+
+    .nome div .big{
+        font-size: 1.5rem;
+
+    }
+    #follow{
+        padding: .2rem 1.4rem;
+            
+    }
+    .class-follow-Followers-star{
+        width: 90%;
+        padding: 10px 0;
+        cursor: pointer;
+    
+    }
+    .localizado{
+        color: #3a3a3a;
+        font-weight: 400;
+        font-size: 0.9rem;
+        display: flex;
+        width: 100%;
+        
+    }
+    .left-column-img{
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+
