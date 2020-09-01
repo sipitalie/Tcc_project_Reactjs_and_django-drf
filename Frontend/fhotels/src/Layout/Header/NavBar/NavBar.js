@@ -39,7 +39,7 @@ export default function NavBar(props){
                         <li><NavLink to="/register" activeClassName="active">Sign up</NavLink></li>
                     </ul>}   
                 </div>
-                {isAuthenticated &&<div className="Registrar-alojamento"><Link to="#"><FaPlusCircle size="35px"/></Link></div> }
+                {isAuthenticated &&<div className="Registrar-alojamento"><Link to="/register_alojamento"><FaPlusCircle size="35px"/></Link></div> }
                 { isAuthenticated &&<div className ="Notifications">
                     <div className="NotificationIcon"><NotificationButton click={props.buttonnotificationsclick}/></div>         
                 </div>}   

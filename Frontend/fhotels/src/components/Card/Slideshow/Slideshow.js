@@ -2,11 +2,11 @@ import React from 'react';
 import {useState, } from 'react';
 import { FaChevronLeft, FaChevronRight, FaExpand  } from "react-icons/fa";
 import ImgComp from './ImgComp';
-import h1 from '../../../assets/h1.jpg';
-import h2 from '../../../assets/h2.jpg';
-import h4 from '../../../assets/h4.jpg';
-import h5 from '../../../assets/h5.jpg';
-import h7 from '../../../assets/h7.jpg';
+import h1 from '../assets/h1.jpg';
+import h2 from '../assets/h2.jpg';
+import h4 from '../assets/h4.jpg';
+import h5 from '../assets/h5.jpg';
+import h7 from '../assets/h7.jpg';
 //import DrawerToggleButton from '../../Header/SideDrawe/DrawerToggleButton';
 //import {useSelector, useDispatch} from 'react-redux'
 //import LogoutService from '../../../service/logout.service';

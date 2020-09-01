@@ -15,6 +15,7 @@ import Feedback from './page/EnviarFeedback';
 import HotelPage from './page/Hotelpage';
 import Ajuda from './page/Ajuda'
 import Dashboard from './page/Dashboard'
+import RegisterAlojamento from './page/RegisterAlojamento'
 
 
 /*
@@ -37,9 +38,10 @@ const  Routes = () =>(
         <Route path='/eventos' component={Eventos}/>
         <Route path='/promoções' component={Promoções}/>
         <Route path='/sendfeedback' component={Feedback}/>
+        <Route path='/register_alojamento' component={RegisterAlojamento}/>
         <Route path='/ajuda' component={Ajuda}/>
         <Route path='/Dashboard' component={Dashboard}/>
-        <Route path='/hotelpage' component={HotelPage}/>          
+        <Route path='/hotelpage/:id' component={HotelPage}/>          
     </Switch> 
 );
 export default Routes;

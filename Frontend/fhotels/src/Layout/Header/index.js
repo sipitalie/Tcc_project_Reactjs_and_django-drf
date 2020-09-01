@@ -28,7 +28,7 @@ const Header = (props) => {
 
   //console.log(SideDraweOpen)
   //console.log(MenuUserOpen)
-  console.log(NotificationOpen)
+  //console.log(NotificationOpen)
 
 
   return (

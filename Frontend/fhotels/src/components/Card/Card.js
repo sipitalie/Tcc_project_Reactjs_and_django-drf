@@ -2,24 +2,32 @@ import React from 'react';
 //import Slider from './Slideshow/Slideshow'
 import {FiMapPin, FiWifi,} from 'react-icons/fi';
 import { IoMdRestaurant,IoMdFitness } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FaStar} from "react-icons/fa";
 import './Card.css';
 import ImgComp from './Slideshow/ImgComp';
 import h2 from './assets/h5.jpg';
+//import {useDispatch} from 'react-redux';
+//import {alojamentos_details} from './../../store/fetchActions';
+
 
 
 
 export default function Card({alojamento}){
+
+    //const dispatch = useDispatch();
     const description = alojamento
     //let amount_of_stars=description.Estrela
     let star = description.Estrela
-    console.log(description);
+    //console.log(description);
     const followers = 12234
     const follow =()=>{
         //create action follow  
     }
-    //const godethalhes=()=>{
+    //const godetails=()=>{
+    //    const id  =description.id
+    //    dispatch(alojamentos_details(id));
+        //window.location.pathname=`/hotelpage/${id}`;
         //criar uma requisição nos detalhes    
     //}
     const goMap=()=>{
@@ -35,9 +43,9 @@ export default function Card({alojamento}){
             </div>
 
             <div className ="right-column-inf0">
-                <div className="nome">
+                <div className="nome" >
                     <div>
-                        <a href='/hotelpage'><h1 className ="big">{description.nome}</h1></a>
+                        <Link to={`/hotelpage/${description.id}`}><h1 className ="big" >{description.nome}</h1></Link>
                     </div>
                 </div>
 

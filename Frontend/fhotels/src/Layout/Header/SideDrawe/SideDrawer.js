@@ -49,7 +49,7 @@ export default  function SideDrawer(props){
             { 
             isAuthenticated &&<ul>
                 <li>
-                    <Link href="/"> <MdHotel/> A seguir</Link>
+                    <Link to="/"> <MdHotel/> A seguir</Link>
                 </li>    
             </ul>
             }  
