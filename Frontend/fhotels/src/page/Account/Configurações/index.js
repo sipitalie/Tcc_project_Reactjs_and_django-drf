@@ -36,10 +36,16 @@ export default function Account(){
         <section>
             <div className="class-PerfilUser"> 
                 <h1>Perfil</h1> 
-                <div>Foto de perfil</div>
                 <div>Nome</div>
                 <div>email</div>
                 <div>Aleterar palavra pass</div>
+                <div className="Dark-light<">
+                    <div>Dark/light</div>
+                    <label> 
+                        <input className="check-imput" type="checkbox"></input>
+                        <span className="check"> </span>
+                    </label>
+                </div>	    
             </div>           
         </section>  
     );

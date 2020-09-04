@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState}from 'react';
 //import Slider from './Slideshow/Slideshow'
 import {FiMapPin, FiWifi,} from 'react-icons/fi';
 import { IoMdRestaurant,IoMdFitness } from "react-icons/io";
@@ -21,9 +21,15 @@ export default function Card({alojamento}){
     let star = description.Estrela
     //console.log(description);
     const followers = 12234
-    const follow =()=>{
-        //create action follow  
-    }
+
+    const [follow, Setfollow]=useState(false)
+    const Df_rv_follow = () =>Setfollow(!follow);
+    //console.log(lembrete)
+    let Seguir_or_remover_follow ='Remover'
+    if (follow===false) {
+         Seguir_or_remover_follow = "Seguir";
+      }
+    
     //const godetails=()=>{
     //    const id  =description.id
     //    dispatch(alojamentos_details(id));
@@ -81,8 +87,8 @@ export default function Card({alojamento}){
                             { star ===1 && <div><FaStar/></div>}                            
 					    </div>
                     </div>
-                    <button id ="follow" onClick={follow}>
-                        <div>Seguir</div> 
+                    <button id ="follow" onClick={Df_rv_follow}>
+                        <div>{Seguir_or_remover_follow}</div> 
                     </button>
                     <div className="followers">
                         <div>{followers} k</div> 

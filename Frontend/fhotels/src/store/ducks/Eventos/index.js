@@ -9,8 +9,8 @@ export const detail_eventos = createAction('EVENTOSDETAILS');
 
 export default createReducer(INITIAL_STATE, {
     [post_eventos.type]:(state, action) =>[...action.payload],
-    [get_eventos.type]:(state, action) => [...state, action.payload],
-    [detail_eventos.type]:(state, action) =>[...action.payload],
+    [get_eventos.type]:(state, action) => [...action.payload],
+    [detail_eventos.type]:(state, action) =>[action.payload],
 });
 
 

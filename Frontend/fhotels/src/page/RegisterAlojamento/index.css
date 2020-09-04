@@ -74,19 +74,22 @@
 }
 .class-checkbox{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     justify-items: center;   
     margin-top: 10px;
+    position: relative;
+    
 }
 .class-checkbox p{
-    width: 50%; 
+    width: 70%; 
 }
-.class-checkbox input{
-    width: 50%;
+#checkboxTrue{
+    right: 10%;
+    width: 16px;
     height: 16px;
     color:#333;
+    -webkit-appearance: checkbox;
     border: 1px solid #dcdce6;
-    
     border-radius: 8px;
     padding: 0 10px;
 }

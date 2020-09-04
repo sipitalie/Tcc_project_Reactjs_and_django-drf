@@ -1,0 +1,78 @@
+.Evento-card{
+    display: flex;  
+    width: 600px;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 10px 10px;
+    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.1),
+     0 -15px 35px rgba(0, 0, 0, 0.1),
+     0 15px 35px rgba(0, 0, 0, 0.1);   
+}
+
+.title-hotel {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+
+}
+.title-hotel h1{
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.title-hotel h2{
+    margin-bottom: 10px;
+    font-size: 12px;
+    margin-right: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.class-content-event{
+    display: flex;
+    width: 100%;  
+}
+.event-data-detalhes{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+}
+.lembret-class{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+    
+     
+}
+
+.definir_or_remover_lembrte{
+    display: flex;
+    width: 30%;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 30px;
+    border-radius: 10px;
+    background: #521751;
+    cursor: pointer;
+    color: #fff;
+}
+.definir_or_remover_lembrte span{
+    margin-left: 5px;
+}
+
+
+
+
+        
+ 
+
+

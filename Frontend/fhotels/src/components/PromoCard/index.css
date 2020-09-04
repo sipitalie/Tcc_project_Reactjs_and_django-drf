@@ -1,0 +1,13 @@
+.Promo-card{
+    display: flex;  
+    width: 250px;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 10px 10px;
+    box-shadow: 15px 0 15px rgba(0, 0, 0, 0.1),
+     0 -15px 15px rgba(0, 0, 0, 0.1),
+     0 15px 15px rgba(0, 0, 0, 0.1);   
+}

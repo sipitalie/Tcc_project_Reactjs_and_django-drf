@@ -100,7 +100,7 @@ export const send_feedback =()=>{
 
 export const evento_get =()=>{
     return (dispatch) =>{
-        api.post("api.v1/evento/")
+        api.get("api.v1/evento/")
             .then((res)=>{
                 dispatch(get_eventos(res.data));
             })   
@@ -120,7 +120,7 @@ export const evento_post =(data)=>{
 
 export const evento_details =(id)=>{
     return (dispatch) =>{
-        api.post(`api.v1/evento/${id}`)
+        api.get(`api.v1/evento/${id}`)
             .then((res)=>{
                 dispatch(detail_eventos(res.status));
             }) 
@@ -128,3 +128,37 @@ export const evento_details =(id)=>{
     };
 };
 
+
+
+
+export const promo_post =(data)=>{
+    return (dispatch) =>{
+        api.post("api.v1/promoçao/", data)
+            .then((res)=>{
+                dispatch(post_promo(res.status));
+            })   
+            .catch(console.log)
+    };
+};
+
+
+
+export const promo_get =()=>{
+    return (dispatch) =>{
+        api.get(`api.v1/promoçao/`)
+            .then((res)=>{
+                dispatch(get_promo(res.data));
+            }) 
+            .catch(console.log)
+    };
+};
+
+export const promo_details =(id)=>{
+    return (dispatch) =>{
+        api.get(`api.v1/promoçao/${id}`)
+            .then((res)=>{
+                dispatch(detail_promo(res.data));
+            }) 
+            .catch(console.log)
+    };
+};
