@@ -9,7 +9,6 @@ import Backdrop from './Backdrop/Backdrop';
 import {useSelector} from 'react-redux'
 
 const Header = (props) => {
-
   const {isAuthenticated}= useSelector(state => state.auth);
 
   const[SideDraweOpen, SetsideDraweOpen]=useState(false);
@@ -36,7 +35,6 @@ const Header = (props) => {
      <NavBar drawerToggleButton={drawerToggleClickHamdler} 
      buttonuserclick={usertooglecli} buttonnotificationsclick={notificationclick} />
      <SideDrawer show={SideDraweOpen} />
-     {SideDraweOpen && <Backdrop click={backdropClickHandler} />}
      {isAuthenticated && <MenuDropDown show={MenuUserOpen}/> } 
      {isAuthenticated && MenuUserOpen && <Backdrop click={backusertooglecli}/>}
      {isAuthenticated && <NoticationsUser show={NotificationOpen}/>}
@@ -47,4 +45,4 @@ const Header = (props) => {
 
 export default Header;
 
-//<div style={{height:'100%'}}></div>
+//<div style={{height:'100%'}}></div>{SideDraweOpen && <Backdrop click={backdropClickHandler} />}

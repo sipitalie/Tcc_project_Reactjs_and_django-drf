@@ -138,10 +138,10 @@
     }
 }
 @media (min-width:761px){
-    .navbar_toggle_button{
+    .naevbar_toggle_button{
         display: none;
     }
     .navbar_logo { 
-        margin-left: 0;
+        margin-left: 10px;
     }
 }

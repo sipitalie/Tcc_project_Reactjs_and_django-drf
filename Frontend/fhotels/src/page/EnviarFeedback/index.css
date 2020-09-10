@@ -6,3 +6,13 @@
     border-radius: 8px;
     padding: 0 24px;         
  }
+
+ .class-Feedback button{
+    margin-top:10px;  
+    height: 40px;
+    background: #521750;
+    border: 0;
+    color: white;
+    border-radius: 8px;
+    padding: 0 24px;         
+ }

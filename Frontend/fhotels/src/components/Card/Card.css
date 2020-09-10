@@ -1,16 +1,18 @@
 .product-card{
     display: flex;   
-    justify-content: center;
     align-items: center;
+    margin-right: 10px;
     margin-top: 10px;
-    width: 600px;
+    /*width: 300px;*/
+    
+    /*justify-content: center;*/
 }
 .left-column-img{
-    width: 50%;
-    height: 270px;
-    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.3),
-    0 -15px 35px rgba(0, 0, 0, 0.1),
-    0 15px 35px rgba(0, 0, 0, 0.7);
+    width: 45%;
+    height: 200px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3),
+    0 -5px 15px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.7);
 }
 .class-img-slide{
     width: 100%;
@@ -21,24 +23,23 @@
     justify-content: center;
     align-items: center; 
 }
-
 .img-perfil{
     width: 100%;
     position: absolute;
 }
 
-
 .right-column-inf0{
-    width: 50%;
+    width: 55%;
+    height: 200px;
     background-color: #fff;
-    padding: 10px 10px;
-    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.1),
-     0 -15px 35px rgba(0, 0, 0, 0.1),
-     0 15px 35px rgba(0, 0, 0, 0.1);   
+    padding: 5px 5px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1),
+     0 -5px 15px rgba(0, 0, 0, 0.1),
+     0 5px 15px rgba(0, 0, 0, 0.1);   
 }
 
 .nome {
-    padding: 0 0 10px 0;
+    padding: 0 0 5px 0;
 }
 
 .nome div{
@@ -53,32 +54,34 @@
     color: rgb(65, 62, 62) ;
     
 }
-.nome div .big{
-   
-    font-size: 1.5rem;
-    margin-right: 10px;
+.nome div .big{ 
+    height: 25.6px;
+    font-size: 0.8rem;
+    margin-right: 5px;
     line-height: 1;
     text-transform: uppercase;
 }
 .tipo{
+    height: 20px;
     color: #3a3a3a;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     
 }
 
 .localizado{
+    height: 30px;
     color: #3a3a3a;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     display: flex;
-    width: 80%;
+    width: 90%;
     
 }
 .localizado button{
     margin-right: 5px;
-    width: 20px;
+    width: 10px;
     transition: .5s;
 }
 .localizado  button {
@@ -91,7 +94,7 @@
     transform: scale(1.1);
     
 }
-.dercricão , .class-follow-Followers-star{
+.dercricão , .class-follow-Followers{
     border-bottom: 1px solid #dadada;
     padding: 5px 0;
 
@@ -101,12 +104,12 @@
     font-size: 15px;
 }
 
-.class-follow-Followers-star{
+.class-follow-Followers{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     cursor: pointer;
 
 }
@@ -127,8 +130,9 @@
 
 #follow{
     border: 0;
-    padding: .4rem 1.4rem;
+    padding: .3rem 1rem;
     border-radius: 5px;
+    margin-right: 5px;
     background-color:  #521751;
     transition: .5s;
     cursor: pointer;
@@ -140,7 +144,7 @@
 
 }
 .class-wifi-restaurant-gym{
-    width: 40%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,8 +1,8 @@
 import React ,{useState}from 'react';
 //import Slider from './Slideshow/Slideshow'
-import {FiMapPin, FiWifi,} from 'react-icons/fi';
+import {FiMapPin, FiWifi} from 'react-icons/fi';
 import { IoMdRestaurant,IoMdFitness } from "react-icons/io";
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaStar} from "react-icons/fa";
 import './Card.css';
 import ImgComp from './Slideshow/ImgComp';
@@ -20,7 +20,7 @@ export default function Card({alojamento}){
     //let amount_of_stars=description.Estrela
     let star = description.Estrela
     //console.log(description);
-    const followers = 12234
+    const followers = 124
 
     const [follow, Setfollow]=useState(false)
     const Df_rv_follow = () =>Setfollow(!follow);
@@ -72,21 +72,17 @@ export default function Card({alojamento}){
 
                 </div>
 
-                <div className="dercricão">
-                    <p className="dercricão-info">{description.linha}</p>
+                <div className="class-star">
+					<div className="class-star-5">
+                        { star ===5 && <div><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></div>}
+                        { star ===4 && <div><FaStar/><FaStar/><FaStar/><FaStar/></div>}
+                        { star ===3 && <div><FaStar/><FaStar/><FaStar/></div>}
+                        { star ===2 && <div><FaStar/><FaStar/></div>}
+                        { star ===1 && <div><FaStar/></div>}                            
+					</div>
                 </div>
-				
-                <div className="class-follow-Followers-star">
-                
-                    <div className="class-star">
-					    <div className="class-star-5">
-                            { star ===5 && <div><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></div>}
-                            { star ===4 && <div><FaStar/><FaStar/><FaStar/><FaStar/></div>}
-                            { star ===3 && <div><FaStar/><FaStar/><FaStar/></div>}
-                            { star ===2 && <div><FaStar/><FaStar/></div>}
-                            { star ===1 && <div><FaStar/></div>}                            
-					    </div>
-                    </div>
+
+                <div className="class-follow-Followers">
                     <button id ="follow" onClick={Df_rv_follow}>
                         <div>{Seguir_or_remover_follow}</div> 
                     </button>
@@ -111,3 +107,8 @@ export default function Card({alojamento}){
         </div> 
     );
 }
+/*
+<div className="dercricão">
+                    {<p className="dercricão-info">{description.linha}</p>}
+                </div>
+ */

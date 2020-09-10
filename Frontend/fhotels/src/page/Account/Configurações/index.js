@@ -8,34 +8,13 @@ import {authRegister} from '../../../store/fetchActions';
 
 import './index.css';
 export default function Account(){ 
-
-    /*/const [token, setToken] = useState('');
-    //const [email, setEmail] = useState('');
-    //const [username, setUsername] = useState('');
-    //const [password, setPassword] = useState('');
-   // const [password2, setPassword2] = useState('');
-    //const history = useHistory();
-    //const dispatch = useDispatch();
-
-    function handleRegister(e){
-        e.preventDefault();
-        const data = {
-            email,
-            username,
-            password,
-            password2,    
-        };
-        setEmail('');
-        setUsername('');
-        setPassword('');
-        setPassword2('');
-        dispatch(authRegister(data));  
-    }*/
-    
+   
     return(
         <section>
             <div className="class-PerfilUser"> 
-                <h1>Perfil</h1> 
+                <div className="account-perfil">
+                    <h1>Perfil</h1>
+                </div> 
                 <div>Nome</div>
                 <div>email</div>
                 <div>Aleterar palavra pass</div>
@@ -51,14 +30,3 @@ export default function Account(){
     );
 }
 
-/*
-try {
-    const response = await api.post('/account/login/', data);
-    console.log(response.data.key);
-    console.log(response.status);
-    localStorage.setItem('token', response.data.key);
-    history.push('/');
-
-} catch (err){
-    console.log("Falha no login, tente novamente. ",err);
-}*/

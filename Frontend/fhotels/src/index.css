@@ -49,5 +49,19 @@ form textarea{
     line-height: 24px;  
 }
 */
+textarea{
+    font: 400 14px Roboto, sans-serif;
+
+}
+form textarea{
+    width: 100%;
+    min-height: 140px;
+    resize: vertical;
+    color:#333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 16px 24px;
+    line-height: 24px; 
+ }
 
 
