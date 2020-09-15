@@ -24,7 +24,7 @@ export default function EventCard({evento}){
             <div className="event-data-detalhes"> 
                 <p>dia: {evento.data_do_evento}</p>
                 <p>publicado a: {evento.data}</p>
-                <Link to={`/eventos/${evento.id}`}><p>ver detalhes</p></Link>
+                <Link to={`/eventos/${evento.id}`}><p>ver mais</p></Link>
             </div>
             <div  className="lembret-class">
                 <div className="definir_or_remover_lembrte" onClick ={Df_rv_lembret}>{definir_or_remover_lembrte}<span><FaBell/></span></div>

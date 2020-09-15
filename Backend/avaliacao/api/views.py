@@ -21,11 +21,21 @@ class AvaliacaoList(APIView):
 
     def get(self, request, format=None): 
         hotel=request.data['hotel']
+        print(hotel)
         avaliacao = self.get_evaluation_hotel(hotel)
         serializer = AvaliacaoSerializer(avaliacao, many=True)
         return Response(serializer.data)
 
 
+class PromoListHotelPage(APIView):
+    """
+    List all Promo HotelPage
+    """
+    def post(self, request,format=None): #function to list all Events
+        hotel_owner=request.data.get('hotel_owner','0')
+        avaliacao=Avaliacao.objects.filter(hotel=hotel_owner)
+        serializer = AvaliacaoSerializer(avaliacao, many=True)
+        return Response(serializer.data)
 
 class AvaliacaoCreate(APIView):
     """

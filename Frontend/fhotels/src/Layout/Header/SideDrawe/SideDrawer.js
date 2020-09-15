@@ -41,7 +41,7 @@ export default  function SideDrawer(props){
             } 
             {
             !isAuthenticated &&<ul>
-                <li><Link to="/register"><FaUserCircle/> Sig in</Link></li>
+                <li><Link to="/register"><FaUserCircle/> Sig up</Link></li>
                 <li><Link to="/login"><FiLogIn/> Login</Link></li>
                 
             </ul>

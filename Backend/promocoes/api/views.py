@@ -30,7 +30,18 @@ class PromotionList(APIView):
         
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
+class PromoListHotelPage(APIView):
+    """
+    List all Promo HotelPage
+    """
+    def get(self, request,hotel_owner_id,format=None): #function to list all Events
+        print(type(hotel_owner_id))
+        promo=Promocao.objects.filter(hotel=hotel_owner_id)
+        serializer = PromocaoSerializer(promo, many=True)
+        return Response(serializer.data)
 
+
+        
 class PromotionDetail(APIView):
     """
     Retrieve, update or delete a promotion instance.

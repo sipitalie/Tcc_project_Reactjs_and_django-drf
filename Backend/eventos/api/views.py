@@ -13,11 +13,12 @@ class EventList(APIView):
     List all Events, or create a new Events.
     """
     def get(self, request, format=None): #function to list all Events
+        #evento=Evento.objects.filter(id)
         evento = Evento.objects.all()
         serializer = EventoSerializer(evento, many=True)
         return Response(serializer.data)
 
-
+    
     #apermission_classes=(IsAuthenticated,)
     #authentication_classes = (TokenAuthentication,)
     def post(self, request, format=None): #function to create a Event
@@ -29,13 +30,30 @@ class EventList(APIView):
             return Response(data,status=status.HTTP_201_CREATED)
         
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+class EventListHotelPage(APIView):
+    """
+    List all Events HotelPage
+    """
+    def get_object(self, hotel_owner_id):
+        try:
+            return Evento.objects.filter(hotel_owner=hotel_owner_id)
+        except Evento.DoesNotExist:
+            raise Http404
 
+    def get(self,request, hotel_owner_id, format=None): #function to list all Events
+        #evento=Evento.objects.filter(hotel_owner=hotel_owner_id)
+        #hotel_owner=int(request.data['hotel_owner'])
+        #hotel_owner=request.data.get('hotel_owner')
+        #evento = Evento.objects.all()
+        print(type(hotel_owner_id))
+        evento = self.get_object(hotel_owner_id)
+        serializer = EventoSerializer(evento, many=True)
+        return Response(serializer.data)
 
 class EventDetail(APIView):
     """
     Retrieve, update or delete a Event instance.
-    """
-     
+    """   
     def get_object(self, pk):
         try:
             return Evento.objects.get(pk=pk)
@@ -44,8 +62,11 @@ class EventDetail(APIView):
 
     def get(self, request, pk, format=None): #fncution to Retrieve a Event instance
         evento = self.get_object(pk)
+        data1=request.data.get('id','0')
+    
         serializer = EventoSerializer(evento)
         return Response(serializer.data)
+
 
     #permission_classes=(IsAuthenticated,)
     #authentication_classes = (TokenAuthentication,)

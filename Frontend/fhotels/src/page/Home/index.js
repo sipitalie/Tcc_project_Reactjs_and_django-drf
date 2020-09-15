@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react';
+import { useParams, Link, Route, useRouteMatch } from 'react-router-dom';
 import './Home.scss';
 import {useSelector, useDispatch} from 'react-redux';
 import {get_all_alojamentos} from '../../store/fetchActions';
@@ -8,7 +9,7 @@ export default function Cards() {
 
     const alojamento= useSelector((state) =>(state.Alojamento));
     const dispatch =useDispatch();
-    
+   
     useEffect( () => {
         dispatch(get_all_alojamentos());
     },[dispatch]);
