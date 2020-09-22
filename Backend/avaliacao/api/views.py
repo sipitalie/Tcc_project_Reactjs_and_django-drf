@@ -10,48 +10,32 @@ from rest_framework.generics import UpdateAPIView
 from rest_framework import status
 #from rest_framework.authtoken.models import Token
 
-
-class AvaliacaoList(APIView):
-    
-    def get_evaluation_hotel(self, hotel):
+class AvaliacaoListtHotelPage(APIView):
+    """
+    List all evaluations HotelPage
+    """
+    def get_object(self, hotel_owner_id):
         try:
-            return  Avaliacao.objects.filter(hotel=hotel)
+            return Avaliacao.objects.filter(hotel=hotel_owner_id)
         except Avaliacao.DoesNotExist:
             raise Http404
 
-    def get(self, request, format=None): 
-        hotel=request.data['hotel']
-        print(hotel)
-        avaliacao = self.get_evaluation_hotel(hotel)
-        serializer = AvaliacaoSerializer(avaliacao, many=True)
-        return Response(serializer.data)
-
-
-class PromoListHotelPage(APIView):
-    """
-    List all Promo HotelPage
-    """
-    def post(self, request,format=None): #function to list all Events
-        hotel_owner=request.data.get('hotel_owner','0')
-        avaliacao=Avaliacao.objects.filter(hotel=hotel_owner)
+    def get(self,request, hotel_owner_id, format=None): #function to list all evaluetions
+        print(type(hotel_owner_id))
+        avaliacao = self.get_object(hotel_owner_id)
         serializer = AvaliacaoSerializer(avaliacao, many=True)
         return Response(serializer.data)
 
 class AvaliacaoCreate(APIView):
     """
     Classe para avaliar um Hotel.
-    Class to evaluate a Hotel.
     """
     def validate_to_rank(self, User, hotel):
         """
-    pt:
-    A função validate_to_rank verifica se um determinado usuário
-    já classificou um determinado hotel.
-
-    en: 
-    The validate_to_rank function checks whether a given
-    user has already rated a given hotel.
-    """ 
+        pt:
+        A função validate_to_rank verifica se um determinado usuário
+        já classificou um determinado hotel.
+        """ 
         avaliacao = None
         data={}
         try:
@@ -62,6 +46,7 @@ class AvaliacaoCreate(APIView):
             data["Error"]="Hotel ja classificado"
             return data
     def post(self, request):
+        
         serializer=AvaliacaoSerializer(data=request.data)
     
         User=serializer.initial_data['User']
@@ -107,4 +92,19 @@ def validate_to_rank(User, hotel):
 #print(avaliacao.query)
 #print(len(avaliacao))
 #print(avaliacao1.query)"
+
+class AvaliacaoList(APIView):
+    
+    def get_evaluation_hotel(self, hotel):
+        try:
+            return  Avaliacao.objects.filter(hotel=hotel)
+        except Avaliacao.DoesNotExist:
+            raise Http404
+
+    def get(self, request, format=None): 
+        hotel=request.data['hotel']
+        print(hotel)
+        avaliacao = self.get_evaluation_hotel(hotel)
+        serializer = AvaliacaoSerializer(avaliacao, many=True)
+        return Response(serializer.data)
 """

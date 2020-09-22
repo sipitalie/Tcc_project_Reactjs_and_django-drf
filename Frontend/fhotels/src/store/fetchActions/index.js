@@ -1,10 +1,11 @@
 //fetch actions <=> buscar ações em um serviço externo
 import api from '../../service/api';
-import {login, register,forgotpassword} from '../ducks/auth'
-import {get_alojamento, detail_alojamento, post_alojamento} from '../ducks/Alojamentos'
-import {get_eventos, post_eventos, detail_eventos, get_eventos_hotel} from '../ducks/Eventos'
-import {detail_promo, get_promo, post_promo, get_promo_hotel} from '../ducks/Promoções'
-import {sendfeedback} from '../ducks/feedback'
+import {login, register,forgotpassword} from '../ducks/auth';
+import {get_alojamento, detail_alojamento, post_alojamento} from '../ducks/Alojamentos';
+import {get_eventos, post_eventos, detail_eventos, get_eventos_hotel} from '../ducks/Eventos';
+import {get_avaliaçoes_hotel} from '../ducks/Avaliaçoes';
+import {detail_promo, get_promo, post_promo, get_promo_hotel} from '../ducks/Promoções';
+import {sendfeedback} from '../ducks/feedback';
 
 export const authLogin = (user)=>{
     return dispatch =>{
@@ -174,6 +175,30 @@ export const promo_hotel =(hotel_owner_id)=>{
         api.get(`api.v1/promoçao/hotelpage/${hotel_owner_id}`)
             .then((res)=>{
                 dispatch(get_promo_hotel(res.data));
+            }) 
+            .catch(console.log)
+    };
+};
+
+
+export const avaliaçoes_hotel =(hotel_owner_id)=>{
+    return (dispatch) =>{
+        api.get(`api.v1/avaliacao/hotelpage/${hotel_owner_id}`)
+            .then((res)=>{
+                dispatch(get_avaliaçoes_hotel(res.data));
+            }) 
+            .catch(console.log)
+    };
+};
+
+
+
+
+export const quartos_hotel =(hotel_owner_id)=>{
+    return (dispatch) =>{
+        api.get(`api.v1/quarto/hotelpage/${hotel_owner_id}`)
+            .then((res)=>{
+                dispatch(get_avaliaçoes_hotel(res.data));
             }) 
             .catch(console.log)
     };

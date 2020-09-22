@@ -5,6 +5,8 @@ import { alojamentos_details } from '../../store/fetchActions';
 import { FaStar} from "react-icons/fa";
 import EventosHotel from './EventosHotelPage';
 import PromosHotel from './PromoçõesHotelPage';
+import AvaliacoesHotel from './AvaliaçõesHotelPage';
+import QuartosHotel from './QuartosHotelPage'
 
 import ImgComp from './ImgComp';
 import h2 from '../../components/Card/assets/h5.jpg';
@@ -80,6 +82,25 @@ export default function HotelPage(){
                                 <>
                                     <div>Promoções</div>
                                     <PromosHotel/>
+                                </>
+                            )
+                        }}/>
+
+                        <Route path={`${match.path}/avaliacoes`} render={()=>{
+                            return(
+                                <>
+                                    <div>Avaliações</div>
+                                    <AvaliacoesHotel/>
+                                </>
+                            )
+                        }}/>
+
+                        <Route path={`${match.path}/quartos`} render={()=>{
+                            return(
+                                <>
+                                    <div>Quartos</div>
+                                    <QuartosHotel/>
+                                    
                                 </>
                             )
                         }}/>
