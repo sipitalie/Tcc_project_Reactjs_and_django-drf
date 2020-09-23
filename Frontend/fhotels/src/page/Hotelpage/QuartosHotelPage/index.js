@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {quartos_hotel} from '../../../store/fetchActions';
 import QuartosCard from '../../../components/QuartoCard';
+import './index.css'
 
 
 export default function QuartosHotel(){ 

@@ -1,0 +1,146 @@
+.class_Quarto_{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+    background-color: gainsboro;
+    width: 702px;
+
+
+}
+.Class_column_Quarto_left_img{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    background: purple;
+     
+}
+.class-img-slide{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.Slider{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;  
+}
+.Slide{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    transition: 0.5s;
+    overflow: hidden;
+    
+}
+
+#goLeft{
+    position: absolute;
+    width: 100px;
+    height: 100% ;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    
+}
+#goRight{
+    position: absolute;
+    width: 100px;
+    height: 100% ;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    
+}
+#expandSlider{
+    position: absolute;
+    width: 100px;
+    height: 100% ;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    margin-top: 20px;
+}
+
+.span-goRight{
+    position: absolute;
+    width: 100px;
+    right: 360px;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s; 
+}
+.span-expandSlide{
+    position: absolute;
+    width: 100px;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    margin-top: 100px;
+    right: 355px;
+}
+
+.span-goLeft{
+    position: absolute;
+    width: 100px;
+    height: 10% ;
+    transform: translateY(-0%);  
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.5s;   
+}
+
+#goLeft:hover{
+    background: rgba(0,0,0,0.356);
+    cursor: pointer;
+    
+}
+.span-goLeft :hover div{
+    color: white;  
+}
+
+#goRight:hover{
+    background: rgba(0,0,0,0.356);
+    cursor: pointer;
+    
+}
+.span-goRight :hover div{
+    color: white;  
+}
+
+.Class_column_Quarto_right_info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+    background-color: #fff;
+    padding: 5px 5px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1),
+     0 -1px 3px rgba(0, 0, 0, 0.1),
+     0 1px 3px rgba(0, 0, 0, 0.1);
+}
+

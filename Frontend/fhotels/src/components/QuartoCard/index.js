@@ -1,13 +1,24 @@
 import React from 'react';
+import './index.css'
+import Slider from '../Slideshow/Slideshow'
    
 export default function QuartosCard({ Quarto }) {
-    const id = Quarto.id
-    console.log(id)
+        
     return (
-        <div className="Class_Quarto">
-        <div>{"Caract_bedroom: "+Quarto.Caract_bedroom}</div>
-        <div>{"type_bedroom: "+Quarto.type_bedroom}</div>
-        <div>{"preco: "+Quarto.preco}</div>
-        </div>
+        <>  
+            <div className="class_Quarto_">
+                
+                <div className="Class_column_Quarto_right_info">
+                    <div><p>{"Carategoria: "+Quarto.Caract_bedroom}</p></div>
+                    <div><p>{"Tipo: "+Quarto.type_bedroom}</p></div>
+                    <div><p>{"preço: "+Quarto.preco}</p></div>
+                </div>
+                <div className="Class_column_Quarto_left_img">
+                    <Slider/>
+                </div>
+            </div>
+            
+        </>
+        
     );}
     
