@@ -6,11 +6,12 @@
     box-sizing: border-box;
 }
 body{
-    height: 100vh;
     display: flex;
+    height: 100vh;
+    padding-top: 60px;
     justify-content: center;
     justify-items: center;
-    background:white;
+    /*background:white;*/
     font-family: Roboto, sans-serif;
 }
 button{ 

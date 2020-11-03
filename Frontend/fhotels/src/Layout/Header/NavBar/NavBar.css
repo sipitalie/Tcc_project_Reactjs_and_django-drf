@@ -5,7 +5,7 @@
     width: 100%;
     background: #521751;
     height: 60px;
-    
+    z-index: 10;
 
 }
 .navbar_navegation{

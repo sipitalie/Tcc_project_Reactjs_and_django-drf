@@ -1,23 +1,16 @@
 import React from 'react';
-import './NavBar.css';
 import ButtonUserMenu from '../UserMenu/ButtonUserMenu';
 import NotificationButton from '../NotificationsUser/Usernotificationsbutton';
 import DrawerToggleButton from '../../Header/SideDrawe/DrawerToggleButton';
-import {useSelector, useDispatch} from 'react-redux'
-import LogoutService from '../../../service/logout.service';
+import {useSelector} from 'react-redux'
 import { Link, NavLink} from 'react-router-dom';
-import { FaUserCircle, FaBell, FaPlusCircle } from "react-icons/fa";
+import {FaPlusCircle } from "react-icons/fa";
 
+import './NavBar.css';
 
-//'../../../components/SideDrawe/DrawerToggleButton';
 export default function NavBar(props){
     const {isAuthenticated}= useSelector(state => state.auth);
-    const dispacth = useDispatch();
-    function authLoginButton(){
-        isAuthenticated && dispacth(LogoutService());
-        
-    }
-
+    
     return(
         <header className="navbar">
         <nav className="navbar_navegation">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {promo_get} from '../../store/fetchActions';
 import PromoCard from '../../components/PromoCard'

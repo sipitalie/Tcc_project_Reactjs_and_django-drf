@@ -1,16 +1,11 @@
 import React ,{useState}from 'react';
-//import Slider from './Slideshow/Slideshow'
 import {FiMapPin, FiWifi} from 'react-icons/fi';
 import { IoMdRestaurant,IoMdFitness } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { FaStar} from "react-icons/fa";
 import './Card.css';
-import ImgComp from './Slideshow/ImgComp';
-import h2 from './assets/h5.jpg';
-//import {useDispatch} from 'react-redux';
-//import {alojamentos_details} from './../../store/fetchActions';
-
-
+import ImgComp from '../Slideshow/ImgComp';
+import h2 from '../../assets/h5.jpg';
 
 
 export default function Card({alojamento}){
@@ -27,6 +22,7 @@ export default function Card({alojamento}){
     //console.log(lembrete)
     let Seguir_or_remover_follow ='Remover'
     if (follow===false) {
+        
          Seguir_or_remover_follow = "Seguir";
       }
     

@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {alojamento_register} from './../../store/fetchActions';
-import { Link ,useHistory} from 'react-router-dom';
+
 import './index.css';
 /*tipo
 Type=(('Hotel','Hotel'),

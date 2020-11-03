@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {promo_hotel} from '../../../store/fetchActions';
 import PromoCard from '../../../components/PromoCard';
+import InfoCard from '../../../components/InfoCard'
 import './index.css';
 
 export default function PromosHotel(){ 
@@ -12,12 +13,14 @@ export default function PromosHotel(){
     const hotel_owner_id =id
     useEffect( () => {
         dispatch(promo_hotel(hotel_owner_id));
-    },[dispatch]);   
+    },[dispatch, hotel_owner_id]); 
+    const lengthPomo=(Promo.length)  
     return(
         <>
-            <div className="EventosHotelPage">                
+           {lengthPomo > 0 ?<div className="PromosHotelPage">                
             {Promo.map((promos, index)=>  <PromoCard key ={index} promo={promos} />)}                
-            </div>           
+            </div>: <InfoCard info='sem promoções publicadas'/>
+           }          
         </>  
     );
 }

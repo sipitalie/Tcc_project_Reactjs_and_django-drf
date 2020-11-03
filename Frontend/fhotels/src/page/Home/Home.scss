@@ -1,20 +1,14 @@
 .container{
     display:  grid;
-    min-height: 100vh;
-    /*align-items: center;*/
-    padding: 50px 0;
-    flex-direction: column;
-    
-    /*margin-right: 0;*/
-         
+    min-height: auto;
+    flex-direction: column;  
+    margin-bottom: 20px;      
 }
 
 @media (min-width: 1024px){
     .container{
         grid-template-columns: repeat(4, 1fr);
-        margin-left: 250px;
-        /*grid-template-columns: repeat(3, 1fr);*/
-        /*padding: 50px 0;  */     
+        margin-left: 250px;    
     } 
 }
 

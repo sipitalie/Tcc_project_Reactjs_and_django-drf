@@ -4,7 +4,6 @@
     margin-right: 10px;
     margin-top: 10px;
     /*width: 300px;*/
-    
     /*justify-content: center;*/
 }
 .left-column-img{
@@ -193,11 +192,11 @@
 }
 @media (max-width: 414px){
     .container{
-        min-height: 100vh;
+        min-height: auto;
         display:  flex;
         justify-content: center;
         align-items: center;
-        padding: 50px 0;    
+       
     }
     .product-card{
         width: 360px;

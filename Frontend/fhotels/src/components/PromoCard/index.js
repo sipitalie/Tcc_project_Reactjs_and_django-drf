@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 //import {FiMapPin, FiWifi,} from 'react-icons/fi';
-import { FaBell}  from "react-icons/fa";
-import { Link } from 'react-router-dom';
+//import { FaBell}  from "react-icons/fa";
+//import { Link } from 'react-router-dom';
 import './index.css';
 
 

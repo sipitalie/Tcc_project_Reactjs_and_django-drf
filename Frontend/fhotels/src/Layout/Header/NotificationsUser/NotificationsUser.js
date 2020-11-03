@@ -2,7 +2,7 @@ import React from 'react';
 import './NotificationsUser.css'
 import { FaCog}  from "react-icons/fa";
 import ImgComp from './ImgComp';
-import h2 from '../../../components/Card/assets/h5.jpg';
+import h2 from '../../../assets/h5.jpg';
 
 export default function NotificationsUser(props){
     let notifications ='notification-user';

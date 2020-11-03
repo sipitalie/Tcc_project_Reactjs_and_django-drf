@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {eventos_hotel} from '../../../store/fetchActions';
 import EventCard from '../../../components/EventoCard';
+import InfoCard from '../../../components/InfoCard';
 import './index.css';
 
 export default function EventosHotel(){ 
@@ -12,12 +13,15 @@ export default function EventosHotel(){
     const hotel_owner_id= id
     useEffect( () => {
         dispatch(eventos_hotel(hotel_owner_id));
-    },[dispatch]);   
+    },[dispatch,hotel_owner_id]); 
+    const lengthEvents=(Evento.length)
+
     return(
         <>
-            <div className="EventosHotelPage">                
+        {lengthEvents > 0 ?<div className="EventosHotelPage">
             {Evento.map((eventos, index)=>  <EventCard key ={index} evento={eventos} />)}                
-            </div>           
+            </div>:<InfoCard info='Sem eventos publicados'/>}        
         </>  
     );
 }
+    

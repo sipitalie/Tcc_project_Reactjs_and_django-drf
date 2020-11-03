@@ -13,16 +13,11 @@ export default function Slider(props){
         <ImgComp src={h2}/>, <ImgComp src={h4}/>,
         <ImgComp src={h5}/>, <ImgComp src={h7}/>]
     const [x, setX]=useState(0)
-
+    
     const goLeft=()=>{
-        //console.log(x);
-        //x=== 0 ? setX(- 100 * (sliderArr.length - 1)) : setX(x + 100); //aqui se clicar em left   e
-        //se etiver na primeira imagem ela vai para ultima.
-
         x=== 0 ? setX( 0 ) : setX(x + 100); //aqui se clicar em left e etiver na primeira imagem ela se mantem na primeira.
     }
     const goRight=()=>{
-        //console.log(x);
         x=== -100 * (sliderArr.length -1) ? setX(0) : setX(x -100);   
     }
    //const autoPlay=()=>{
@@ -45,7 +40,7 @@ export default function Slider(props){
             }
             <span className="span-goLeft" >
                 <button id ="goLeft" onClick={goLeft}>
-                    <div><FaChevronLeft/></div>  
+                    <div ><FaChevronLeft/></div>  
                 </button>
             </span>
 
@@ -68,6 +63,6 @@ export default function Slider(props){
 };
                     
                     
-                    
+         
                     
 

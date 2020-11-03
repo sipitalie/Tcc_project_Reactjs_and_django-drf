@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-//import './index.css';
-
 import NavBar from './NavBar/NavBar';
 import SideDrawer from './SideDrawe/SideDrawer';
 import MenuDropDown from './UserMenu/menuDropdown';
 import NoticationsUser from './NotificationsUser/NotificationsUser';
 import Backdrop from './Backdrop/Backdrop';
 import {useSelector} from 'react-redux'
+//import './index.css';
 
 const Header = (props) => {
   const {isAuthenticated}= useSelector(state => state.auth);
@@ -16,19 +15,13 @@ const Header = (props) => {
   const[NotificationOpen, SetNotificationOpen]=useState(false);
     
   const drawerToggleClickHamdler = () =>SetsideDraweOpen(!SideDraweOpen);
-  const backdropClickHandler =()=>SetsideDraweOpen(!SideDraweOpen);
+  //const backdropClickHandler =()=>SetsideDraweOpen(!SideDraweOpen);
 
   const usertooglecli= () => SetMenuUserOpen(!MenuUserOpen)
   const backusertooglecli= () => SetMenuUserOpen(!MenuUserOpen)
 
   const notificationclick= () => SetNotificationOpen(!NotificationOpen)
   const backnotificationclick= () => SetNotificationOpen(!NotificationOpen)
-
-
-  //console.log(SideDraweOpen)
-  //console.log(MenuUserOpen)
-  //console.log(NotificationOpen)
-
 
   return (
     <div className ="class-Header" style ={{height:'5px'}}>

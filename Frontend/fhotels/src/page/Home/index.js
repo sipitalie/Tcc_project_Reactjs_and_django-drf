@@ -1,10 +1,11 @@
 import React,{useEffect} from 'react';
-import { useParams, Link, Route, useRouteMatch } from 'react-router-dom';
-import './Home.scss';
 import {useSelector, useDispatch} from 'react-redux';
 import {get_all_alojamentos} from '../../store/fetchActions';
-
+import './Home.scss';
 import Card from "../../components/Card/Card";
+//import { useParams, Link, Route, useRouteMatch } from 'react-router-dom';
+
+
 export default function Cards() {
 
     const alojamento= useSelector((state) =>(state.Alojamento));

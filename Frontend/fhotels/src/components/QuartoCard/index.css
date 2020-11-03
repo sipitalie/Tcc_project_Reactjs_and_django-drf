@@ -3,61 +3,58 @@
     flex-direction: column;
     margin-top: 10px;
     align-items: center;
-    background-color: gainsboro;
+    background-color: transparent;
     width: 702px;
-
-
 }
 .Class_column_Quarto_left_img{
     display: flex;
     width: 100%;
-    height: 300px;
-    background: purple;
-     
+    height: 300px;   
 }
 .class-img-slide{
     width: 100%;
-    height: 100%;
     display: flex;
+    height: 100%;
+    border: 0;
+    padding: 0;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    
 }
 .Slider{
-    box-sizing: border-box;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
     margin: 0;
     padding: 0;
-    display: flex;
+    box-sizing: border-box;
     align-items: center;
-    overflow: hidden;  
+    
 }
 .Slide{
     display: flex;
-    align-items: center;
     width: 100%;
-    height: 100%;
     min-width: 100%;
+    height: 100%;
     transition: 0.5s;
-    overflow: hidden;
-    
+    overflow: hidden;    
 }
 
 #goLeft{
     position: absolute;
-    width: 100px;
-    height: 100% ;
-    transform: translateY(-0%);  
+    width: 100%;
+    height: 100% ;  
     align-items: center;
     background: none;
     border: none;
     outline: none;
-    transition: 0.5s;
-    
+    transition: 0.5s; 
 }
 #goRight{
     position: absolute;
-    width: 100px;
+    width: 100%;
     height: 100% ;
-    transform: translateY(-0%);  
     align-items: center;
     background: none;
     border: none;
@@ -67,22 +64,20 @@
 }
 #expandSlider{
     position: absolute;
-    width: 100px;
+    width: 100%;
     height: 100% ;
-    transform: translateY(-0%);  
     align-items: center;
     background: none;
     border: none;
     outline: none;
     transition: 0.5s;
-    margin-top: 20px;
 }
 
 .span-goRight{
     position: absolute;
-    width: 100px;
-    right: 360px;
-    transform: translateY(-0%);  
+    width: 10%;
+    height: 100%;
+    right: 0.1%;
     align-items: center;
     background: none;
     border: none;
@@ -91,22 +86,22 @@
 }
 .span-expandSlide{
     position: absolute;
-    width: 100px;
-    transform: translateY(-0%);  
+    width: 5%;
+    height: 10%;
+    right: 15%;
     align-items: center;
     background: none;
     border: none;
     outline: none;
     transition: 0.5s;
-    margin-top: 100px;
-    right: 355px;
+    bottom: 5%;
+    
 }
 
 .span-goLeft{
     position: absolute;
-    width: 100px;
-    height: 10% ;
-    transform: translateY(-0%);  
+    width: 10%;
+    height: 100%;
     align-items: center;
     background: none;
     border: none;
@@ -131,12 +126,18 @@
 .span-goRight :hover div{
     color: white;  
 }
+#expandSlider:hover{
+    background: rgba(0,0,0,0.356);
+    cursor: pointer;   
+}
+.span-expandSlide :hover div{
+    color: white;  
 
+}
 .Class_column_Quarto_right_info{
     display: flex;
     width: 100%;
     justify-content: space-between;
-    
     background-color: #fff;
     padding: 5px 5px;
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1),

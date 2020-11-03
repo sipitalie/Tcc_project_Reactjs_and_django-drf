@@ -22,9 +22,17 @@ class AvaliacaoListtHotelPage(APIView):
 
     def get(self,request, hotel_owner_id, format=None): #function to list all evaluetions
         print(type(hotel_owner_id))
+        dados={}
         avaliacao = self.get_object(hotel_owner_id)
         serializer = AvaliacaoSerializer(avaliacao, many=True)
-        return Response(serializer.data)
+        dados=serializer.data
+        #dados['id']=serializer.data['id']
+        #dados['nota']=serializer.data['nota']
+        #dados['data']=serializer.data['data']
+        #dados['User']=serializer.data['User']
+        #print(dados, type(dados))
+        #dados['Nome']="ola"
+        return Response(dados)
 
 class AvaliacaoCreate(APIView):
     """
