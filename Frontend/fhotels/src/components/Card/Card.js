@@ -1,5 +1,6 @@
-import React ,{useState}from 'react';
+import React ,{useState, useDispatch, useSelector}from 'react';
 import {FiMapPin, FiWifi} from 'react-icons/fi';
+import {Seguirhotel} from '../../store/fetchActions'
 import { IoMdRestaurant,IoMdFitness } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { FaStar} from "react-icons/fa";
@@ -11,6 +12,9 @@ import h2 from '../../assets/h5.jpg';
 export default function Card({alojamento}){
 
     //const dispatch = useDispatch();
+    //const {isAuthenticated}= useSelector(state => state.auth);;
+
+
     const description = alojamento
     //let amount_of_stars=description.Estrela
     let star = description.Estrela
@@ -18,12 +22,15 @@ export default function Card({alojamento}){
     const followers = 124
 
     const [follow, Setfollow]=useState(false)
-    const Df_rv_follow = () =>Setfollow(!follow);
+    const Df_rv_follow = () =>{
+        //isAuthenticated && dispatch(Seguirhotel());
+        Setfollow(!follow);
+    }
     //console.log(lembrete)
     let Seguir_or_remover_follow ='Remover'
     if (follow===false) {
         
-         Seguir_or_remover_follow = "Seguir";
+        Seguir_or_remover_follow = "Seguir";
       }
     
     //const godetails=()=>{

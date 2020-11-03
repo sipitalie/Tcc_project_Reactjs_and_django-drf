@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'quartos',
     'reclamacoes',
     'ImagensPerfil',
+    'seguir',
 
 
 

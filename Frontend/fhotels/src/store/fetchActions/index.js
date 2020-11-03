@@ -1,11 +1,28 @@
 //fetch actions <=> buscar ações em um serviço externo
 import api from '../../service/api';
-import {login, register,forgotpassword} from '../ducks/auth';
-import {get_alojamento, detail_alojamento, post_alojamento} from '../ducks/Alojamentos';
-import {get_eventos, post_eventos, detail_eventos, get_eventos_hotel} from '../ducks/Eventos';
 import {get_avaliaçoes_hotel} from '../ducks/Avaliaçoes';
-import {detail_promo, get_promo, post_promo, get_promo_hotel} from '../ducks/Promoções';
 import {sendfeedback} from '../ducks/feedback';
+
+import {login,
+    register,
+    forgotpassword} from '../ducks/auth';
+import {get_alojamento,
+    detail_alojamento,
+    post_alojamento,
+    seguir_hotel,
+    remover_seguir} from '../ducks/Alojamentos';
+
+import {get_eventos,
+    post_eventos,
+    detail_eventos,
+    get_eventos_hotel} from '../ducks/Eventos';
+
+import {detail_promo,
+    get_promo,
+    post_promo,
+    get_promo_hotel} from '../ducks/Promoções';
+
+
 
 export const authLogin = (user)=>{
     return dispatch =>{
@@ -201,5 +218,15 @@ export const quartos_hotel =(hotel_owner_id)=>{
                 dispatch(get_avaliaçoes_hotel(res.data));
             }) 
             .catch(console.log)
+    };
+};
+
+export const Seguirhotel=(hotel_id, user_id)=>{
+    return(dispatch)=>{
+        api.post(`api.v1/seguir/${hotel_id}/${user_id}`)
+        .then((res)=>{
+            dispatch(seguir_hotel(res.data));
+        })
+        .catch(console.log)
     };
 };
