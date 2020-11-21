@@ -2,15 +2,14 @@
 import api from '../../service/api';
 import {get_avaliaçoes_hotel} from '../ducks/Avaliaçoes';
 import {sendfeedback} from '../ducks/feedback';
-
+import {followers} from '../ducks/hotelsfollowers';
+import {useSelector, useDispatch} from 'react-redux';
 import {login,
     register,
     forgotpassword} from '../ducks/auth';
 import {get_alojamento,
     detail_alojamento,
-    post_alojamento,
-    seguir_hotel,
-    remover_seguir} from '../ducks/Alojamentos';
+    post_alojamento,} from '../ducks/Alojamentos';
 
 import {get_eventos,
     post_eventos,
@@ -21,10 +20,15 @@ import {detail_promo,
     get_promo,
     post_promo,
     get_promo_hotel} from '../ducks/Promoções';
+    
+import {get_a_seguir,
+    follow,
+    onfollow} from '../ducks/seguir';
 
 
 
 export const authLogin = (user)=>{
+    
     return dispatch =>{
         api.post('api/account/login/', user)
         .then(response => {
@@ -32,7 +36,8 @@ export const authLogin = (user)=>{
             localStorage.setItem('email', response.data.email);
             localStorage.setItem('id', response.data.id);
             dispatch(login()); 
-            window.location.pathname='/';          
+            window.location.pathname='/';
+            //window.location.reload();          
         })
         .catch(error =>{
             const {error_mensage} = error.response.data;
@@ -221,12 +226,47 @@ export const quartos_hotel =(hotel_owner_id)=>{
     };
 };
 
-export const Seguirhotel=(hotel_id, user_id)=>{
+export const Seguirhotel=(data)=>{
     return(dispatch)=>{
-        api.post(`api.v1/seguir/${hotel_id}/${user_id}`)
+        api.post("api.v1/follow/",data)
         .then((res)=>{
-            dispatch(seguir_hotel(res.data));
+            //console.log(res.data, res.status)
+            dispatch(follow(res.data));
         })
         .catch(console.log)
     };
 };
+
+
+export const a_Seguirhotel=(User_id)=>{
+    return(dispatch)=>{
+        api.get(`api.v1/follow/user/${User_id}`)
+        .then((res)=>{
+            dispatch(get_a_seguir(res.data));
+        })
+        .catch(console.log)
+    };
+};
+
+export const RemovSeguirhotel=(data)=>{
+    return(dispatch)=>{
+        api.delete(`api.v1/onfollow/${data.User_id}/${data.hotel_id}`)
+        .then((res)=>{
+            dispatch(onfollow(res.data));
+        })
+        .catch(console.log)
+    };
+};
+
+export const followers_hotel=(hotel_id)=>{
+
+    //const dispatch =useDispatch();
+    return(dispatch)=>{
+        api.get(`api.v1/followers/${hotel_id}`)
+        .then((res)=>{
+            dispatch(followers(res.data));
+        })
+        .catch(console.log)
+    };
+};
+

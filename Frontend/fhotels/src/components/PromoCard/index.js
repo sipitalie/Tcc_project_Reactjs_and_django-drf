@@ -6,7 +6,7 @@ import './index.css';
 
 
 export default function PromCard({promo}){
-    console.log(promo)
+    
     return(
         <div className="Promo-card">
             <div className="promo-id">

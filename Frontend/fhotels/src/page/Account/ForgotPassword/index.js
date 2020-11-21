@@ -16,9 +16,8 @@ export default function ForgotPassword(){
             email,
         };
         setEmail('');
-        console.log('email', data.email);
         dispatch(authForgotPassword(data));
-        //   
+          
     }
     
     return(

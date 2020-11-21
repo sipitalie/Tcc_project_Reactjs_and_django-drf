@@ -6,6 +6,8 @@ import PomoReducer from './ducks/Promoções';
 import GetPostAlojamentoReducer from './ducks/Alojamentos';
 import AvaliaçoesReducer from './ducks/Avaliaçoes';
 import QuartosReducer from './ducks/Avaliaçoes';
+import ASEGUIReducer from './ducks/seguir';
+import FollowerReducer from './ducks/hotelsfollowers'
 
 
 export default configureStore({
@@ -16,6 +18,7 @@ export default configureStore({
         Promoçoes:PomoReducer,
         Avaliacoes:AvaliaçoesReducer,
         Quartos: QuartosReducer,
-        
+        ListAseguir:ASEGUIReducer,
+        Seguidores:FollowerReducer,
     }
 });

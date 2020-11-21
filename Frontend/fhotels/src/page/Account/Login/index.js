@@ -65,7 +65,7 @@ export default function Login(){
                     <Link  className="forgotPassword-link" to="/ForgotPassword">Esqueci minha senha?</Link>
                 </div> 
                 <div className ="Ainda-não-possui-conta">
-                    <span>Ainda não possui conta no hotels.me ?</span>
+                    <span>Ainda não possui conta no hotels-AO.me ?</span>
                 </div>
 
                 <div className ="class-link">

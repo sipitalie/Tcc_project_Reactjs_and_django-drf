@@ -9,6 +9,33 @@ from django.http import Http404
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
+#User_id=User_id, hotel_id=hotel_id
+class ASeguirDetail(APIView):
+    def get_object(self, User_id, hotel_id):
+        try:
+            return Seguir.objects.filter(User_id=User_id, hotel_id=hotel_id)
+        except Seguir.DoesNotExist:
+            raise Http404
+    def get(self, request, User_id, hotel_id, format=None): 
+        a_seguir=self.get_object(User_id,hotel_id)
+        serializer = SeguirSerializer(a_seguir,  many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+
+
+
+class ASeguir(APIView):
+    def get_object(self, User_id):
+        try:
+            return Seguir.objects.filter(User_id=User_id)
+        except Seguir.DoesNotExist:
+            raise Http404
+    def get(self, request, User_id, format=None): 
+        a_seguir=self.get_object(User_id)
+        serializer = SeguirSerializer(a_seguir,  many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+
+    
+
 
 class SeguidoresList(APIView):
            
@@ -21,9 +48,9 @@ class SeguidoresList(APIView):
         data={} 
         a_seguir=self.get_object(hotel_id)
         serializer = SeguirSerializer(a_seguir,  many=True)
-        return Response(serializer.data, )
+        return Response(serializer.data,status=status.HTTP_200_OK)
 
-class SeguirRevomer(APIView):
+class FollowOnFollow(APIView):
 
     def validate_hotel(self, hotel_id):
         alojamento= None
@@ -65,7 +92,7 @@ class SeguirRevomer(APIView):
 
     
 
-    def post(self, request, format=None):
+    def post(self, request,format=None):
         User_id=request.data['User_id']
         hotel_id=request.data['hotel_id']
         data={}       
@@ -74,8 +101,9 @@ class SeguirRevomer(APIView):
             if  self.validate_to_follow(User_id, hotel_id)==None:
                 if serializer.is_valid():
                     serializer.save()
-                    data["response"]=True
-                    return Response(data,status=status.HTTP_201_CREATED)
+                    a_seguir=Seguir.objects.filter(User_id=User_id)
+                    serializer = SeguirSerializer(a_seguir,  many=True)
+                    return Response(serializer.data,status=status.HTTP_201_CREATED)
                 return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
             else:
                 if serializer.is_valid():
@@ -86,10 +114,11 @@ class SeguirRevomer(APIView):
         data["Response"]="error"
         return Response(data,status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, format=None): 
+    def delete(self, request, User_id,hotel_id,format=None): 
         data={}
-        User_id=request.data['User_id']
-        hotel_id=request.data['hotel_id']
+        print(User_id,hotel_id,)
+        #User_id=request.data['User_id']
+        #hotel_id=request.data['hotel_id']
         if self.validate_User(User_id) and self.validate_hotel(hotel_id)!=None:
             if  self.validate_to_follow(User_id, hotel_id)!=None:
                 self.validate_to_follow(User_id, hotel_id).delete()
@@ -98,6 +127,84 @@ class SeguirRevomer(APIView):
                 data["Response"]="error"
                 return Response(data,status=status.HTTP_400_BAD_REQUEST)
 
+"""
+class OnFollow(APIView):
+    
+    def validate_hotel(self, hotel_id):
+        alojamento= None
+        try:
+            alojamento=Alojamento.objects.get(pk=hotel_id)
+        except Alojamento.DoesNotExist:
+            return None
+        if alojamento != None:
+            return True
+    def validate_User(self, User_id):
+        account= None
+        try:
+            account=Account.objects.get(pk=User_id)
+        except Account.DoesNotExist:
+            return None
+        if account != None:
+            return True
+    def validate_to_follow(self, User_id, hotel_id):
+        
+       # A função validate_to_follow verifica se um determinado usuário
+        #já segui  um determinado hotel.
+         
+        a_seguir = None
+        data={}
+        try:
+            a_seguir=Seguir.objects.filter(User_id=User_id, hotel_id=hotel_id)
+            #a_seguir=Seguir.objects.filter(User_id=User_id, hotel_id=hotel_id)[:1].get()
+        except Seguir.DoesNotExist:
+            return None
+
+        print(a_seguir)
+        if a_seguir !=None and len( a_seguir)!=0 :
+            return a_seguir
+    def get_seguidores_hotel(self, hotel):
+        try:
+            return Alojamento.objects.filter(Hotel=hotel)
+        except Seguir.DoesNotExist:
+            raise Http404
+
+    
+
+    def post(self, request,format=None):
+        User_id=request.data['User_id']
+        hotel_id=request.data['hotel_id']
+        data={}       
+        if self.validate_User(User_id) and self.validate_hotel(hotel_id)!=None:
+            serializer=SeguirSerializer(data=request.data)
+            if  self.validate_to_follow(User_id, hotel_id)==None:
+                if serializer.is_valid():
+                    serializer.save()
+                    a_seguir=Seguir.objects.filter(User_id=User_id)
+                    serializer = SeguirSerializer(a_seguir,  many=True)
+                    return Response(serializer.data,status=status.HTTP_201_CREATED)
+                return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+            else:
+                if serializer.is_valid():
+                    return Response(status=status.HTTP_204_NO_CONTENT)
+                return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+                #id_seguir=self.validate_to_follow(User_id, hotel_id)              
+                    #Seguir.delete()      
+        data["Response"]="error"
+        return Response(data,status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, User_id,hotel_id,format=None): 
+        data={}
+        print(User_id,hotel_id,)
+        #User_id=request.data['User_id']
+        #hotel_id=request.data['hotel_id']
+        if self.validate_User(User_id) and self.validate_hotel(hotel_id)!=None:
+            if  self.validate_to_follow(User_id, hotel_id)!=None:
+                self.validate_to_follow(User_id, hotel_id).delete()
+                return Response(status=status.HTTP_204_NO_CONTENT) 
+            else:
+                data["Response"]="error"
+                return Response(data,status=status.HTTP_400_BAD_REQUEST)
+"""
 """
 class ReclamacaoDetail(APIView):
     

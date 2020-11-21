@@ -2,11 +2,15 @@ import { useParams, Link, Route, useRouteMatch } from 'react-router-dom';
 import React,{ useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { alojamentos_details } from '../../store/fetchActions';
-import { FaStar} from "react-icons/fa";
+
+
+import STAR from '../../components/Star';
+import Follow from '../../components/Follow';
 import EventosHotel from './EventosHotelPage';
 import PromosHotel from './PromoçõesHotelPage';
 import AvaliacoesHotel from './AvaliaçõesHotelPage';
 import QuartosHotel from './QuartosHotelPage'
+import {a_Seguirhotel} from '../../store/fetchActions';
 //import InfoCard from '../../components/InfoCard';
 
 import ImgComp from './ImgComp';
@@ -17,12 +21,15 @@ export default function HotelPage(){
     let match=useRouteMatch();
     const [navMenu,SetnavMenu]=useState(false)
     const {id } =useParams();
-    
     const dispatch =useDispatch();
+
+    //const {isAuthenticated}= useSelector(state => state.auth); 
+   
     var dados=[]
 
     useEffect( () => {
         dispatch(alojamentos_details(id));  
+        //isAuthenticated && dispatch(a_Seguirhotel(localStorage.getItem('id')));
     },[dispatch, id]);
 
     function onScroll(){
@@ -38,21 +45,15 @@ export default function HotelPage(){
     
     const alojamentodetail= useSelector((state) =>(state.Alojamento));   
     alojamentodetail.map((alojamento, index)=>{ dados=alojamento } )
-    let star = dados.Estrela
-  
+    console.log(dados.id)
+      
     return(
             <div className="class-PageHotel">
                 <header className="header-perfil">
                     <div className="class-foto"><ImgComp src={h2}/></div>
                     <div className="class-content">
                         <div><h1>{dados.nome }</h1></div>
-					    <div className="class-star-5">
-                            { star ===5 && <div><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></div>}
-                            { star ===4 && <div><FaStar/><FaStar/><FaStar/><FaStar/></div>}
-                            { star ===3 && <div><FaStar/><FaStar/><FaStar/></div>}
-                            { star ===2 && <div><FaStar/><FaStar/></div>}
-                            { star ===1 && <div><FaStar/></div>}                            
-					    </div>
+                        <STAR star={dados.Estrela}/>
                         <div>Tipo: {dados.Type_Alojamento}</div>
                         <h4 className="class-cidade">{dados.pais}, {dados.Provincia}, {dados.cidade}</h4>
                         <div className="dercricão"><p className="dercricão-info">{dados.linha}</p></div>

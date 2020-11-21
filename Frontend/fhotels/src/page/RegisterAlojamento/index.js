@@ -55,11 +55,10 @@ export default function RegisterAlojamento(){
         setProvincia('');
         setLinha('');
         setLatitude('');
-        setLongitude('');
-        console.log(data)  
+        setLongitude(''); 
 
         dispatch(alojamento_register(data));
-        console.log(data)  
+        
     }
     return(
         <div className='class-register'>
