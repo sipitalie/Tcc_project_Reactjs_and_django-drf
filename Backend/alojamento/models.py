@@ -17,7 +17,8 @@ estrela=(
     (4,'4 estrelas'),
     (5,' 5 estrelas'),
 )
-
+def uploud_image(instance, filename):
+    return "uploads_img_perfil_{}{}".format(instance.nome,filename)
 class Alojamento (models.Model):
     owner=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nome=models.CharField(max_length=50)
@@ -31,7 +32,7 @@ class Alojamento (models.Model):
     linha=models.CharField(max_length=150)
     latitude=models.FloatField()
     longitude=models.FloatField()
-    foto=models.ImageField(upload_to='imagens/perfil_home_alojamento',null=True, blank=True)
+    foto=models.ImageField(upload_to=uploud_image,null=True, blank=True)
    
     def __str__(self):
         return self.nome

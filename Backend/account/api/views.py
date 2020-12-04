@@ -1,4 +1,5 @@
 from account.models import Account
+from alojamento.models import Alojamento
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from .serializer import (UserSrializer,
      RegisterSerializer, 
@@ -14,6 +15,7 @@ from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import UpdateAPIView
 from rest_framework import status
+from django.http import Http404
 from rest_framework.authentication import TokenAuthentication
 
 @api_view(['GET',])
@@ -53,10 +55,8 @@ def cadastro_view(request):
             data['email']=account.email
             data['username']=account.username
             data['token']=Token.objects.get(user=account).key
-
             return Response(data, status=status.HTTP_201_CREATED)
-            #token=Token.objects.get(user=account).key
-            #data['token']=token
+            
         else:
             data=serializer.errors
             return Response(data,status=status.HTTP_400_BAD_REQUEST)
@@ -77,16 +77,17 @@ class login_token_view(APIView):
                 token=Token.objects.get(user=account)
             except Token.DoesNotExist:
                 token=Token.objects.create(user=account)
+    
             data['response']='sucessfully'
             data['id']=account.pk
             data['email']=email
             data['token']=token.key
+            print(Alojamento.objects.filter(owner=account.pk).values('id'))
+            data['isAdmin']=Alojamento.objects.filter(owner=account.pk).values('id')
             return Response(data, status=status.HTTP_200_OK)
         else:
-            print('nao passei')
             data['response']='Error'
             data['error_mensage']='invalid credential'
-            data['mensage']='não passou'
             return Response(data,status=status.HTTP_400_BAD_REQUEST)
 
 

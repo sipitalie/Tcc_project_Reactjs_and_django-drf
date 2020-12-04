@@ -10,6 +10,7 @@ class GetImgList(APIView):
         perfilhome = Imagens.objects.all().select_related('hotel_owner')
         #perfilhome = Imagens.objects.all()
         serializer = ImgPerfilSerializer(perfilhome, many=True)
+        print(serializer, serializer.data)
         return Response(serializer.data)
 
     def post(self, request, format=None): #function to create a Event

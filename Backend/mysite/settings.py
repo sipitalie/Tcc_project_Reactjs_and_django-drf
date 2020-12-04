@@ -58,7 +58,7 @@ REST_FRAMEWORK = {
 }
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 5,
 }
 
 
@@ -143,6 +143,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_PORT = 587
 #EMAIL_HOST_USER = 
 #EMAIL_HOST_PASSWORD = 
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 LANGUAGE_CODE = 'pt-br'
@@ -156,13 +158,15 @@ USE_L10N = True
 USE_TZ = True
 
 CSRF_COOKIE_NAME = "csrftoken"
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT='imagens'
 MEDIA_URL='/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT=os.path.join(BASE_DIR, 'staticfiles')
 
+##STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-CORS_ORIGIN_ALLOW_ALL = True

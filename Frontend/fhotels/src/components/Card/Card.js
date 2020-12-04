@@ -9,7 +9,7 @@ import Atrativos from '../Atrativos';
 import {FiMapPin} from 'react-icons/fi';
 
 
-import h2 from '../../assets/h5.jpg';
+import h2 from '../../assets/icon_hotel.jpeg';
 import './Card.css';
 
 export default function Card({alojamento}){
@@ -20,7 +20,7 @@ export default function Card({alojamento}){
     return(
         <div className="product-card">
             <div className ="left-column-img">
-                <ImgComp src={h2}/>
+                <ImgComp src={alojamento.foto===null ? h2 : `http://127.0.0.1:8000${alojamento.foto}`}/>
             </div>
 
             <div className ="right-column-inf0">
