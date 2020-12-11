@@ -5,14 +5,16 @@ import { alojamentos_details } from '../../store/fetchActions';
 
 
 import STAR from '../../components/Star';
-import Follow from '../../components/Follow';
 import EventosHotel from './EventosHotelPage';
 import PromosHotel from './PromoçõesHotelPage';
 import AvaliacoesHotel from './AvaliaçõesHotelPage';
 import QuartosHotel from './QuartosHotelPage'
-import {a_Seguirhotel} from '../../store/fetchActions';
-//import InfoCard from '../../components/InfoCard';
 
+import ButtonUploadImg from '../../components/Upload/Profile_Picture/buttonclikupload';
+import UploadImg from '../../components/Upload/Profile_Picture/Upload';
+import Backdrop from '../../Layout/Header/Backdrop/Backdrop';
+//import {a_Seguirhotel} from '../../store/fetchActions';
+//import InfoCard from '../../components/InfoCard';
 import ImgComp from './ImgComp';
 import h2 from '../../assets/h5.jpg';
 import './index.css';
@@ -20,6 +22,7 @@ import './index.css';
 export default function HotelPage(){
     let match=useRouteMatch();
     const [navMenu,SetnavMenu]=useState(false)
+    const[uploadOpen, SetuploadOpen]=useState(false);
     const {id } =useParams();
     const dispatch =useDispatch();
 
@@ -45,12 +48,20 @@ export default function HotelPage(){
     
     const alojamentodetail= useSelector((state) =>(state.Alojamento));   
     alojamentodetail.map((alojamento, index)=>{ dados=alojamento } )
-    console.log(dados.id)
-      
+    //console.log(dados.id)
+    const abrir =()=>{
+        //ra
+    }
+
+    const uploadonclick= () => SetuploadOpen(!uploadOpen);
+    const backuploadOpenclick= () => SetuploadOpen(!uploadOpen)
     return(
             <div className="class-PageHotel">
                 <header className="header-perfil">
-                    <div className="class-foto"><ImgComp src={h2}/></div>
+                    <div className="class-foto">
+                        <ButtonUploadImg click={uploadonclick}/>
+                        <ImgComp src={h2}/>
+                    </div>
                     <div className="class-content">
                         <div><h1>{dados.nome }</h1></div>
                         <STAR star={dados.Estrela}/>
@@ -68,6 +79,8 @@ export default function HotelPage(){
                             <li><Link to={`${match.url}/mapa`}  >Mapa</Link></li>    
                         </ul>      
                 </div>
+                <UploadImg show={uploadOpen}/>
+                {uploadOpen && <Backdrop click={backuploadOpenclick}/>}
                 <div className="rendering">
                         <Route path={`${match.path}/eventos`} render={()=>{
                             return(
@@ -106,3 +119,6 @@ export default function HotelPage(){
     );
 }
 
+/*<div className="class-foto-camera" onClick={abrir}>
+                            <span className='span-camera'><FiCamera size={'14px'}/></span> 
+                        </div>*/

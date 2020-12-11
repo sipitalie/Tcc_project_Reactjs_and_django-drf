@@ -3,7 +3,7 @@ import api from '../../service/api';
 import {get_avaliaçoes_hotel} from '../ducks/Avaliaçoes';
 import {sendfeedback} from '../ducks/feedback';
 import {followers} from '../ducks/hotelsfollowers';
-import {useSelector, useDispatch} from 'react-redux';
+//import {useSelector, useDispatch} from 'react-redux';
 import {login,
     register,
     forgotpassword} from '../ducks/auth';
