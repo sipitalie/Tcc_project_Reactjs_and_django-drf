@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { alojamentos_details } from '../../store/fetchActions';
 
 
+
 import STAR from '../../components/Star';
 import EventosHotel from './EventosHotelPage';
 import PromosHotel from './PromoçõesHotelPage';
@@ -81,6 +82,7 @@ export default function HotelPage(){
                 </div>
                 <UploadImg show={uploadOpen}/>
                 {uploadOpen && <Backdrop click={backuploadOpenclick}/>}
+                
                 <div className="rendering">
                         <Route path={`${match.path}/eventos`} render={()=>{
                             return(
