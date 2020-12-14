@@ -27,4 +27,5 @@ class Quarto(models.Model):
     #imags=models.models.ImageField()
 
     def __str__(self):
-        return self.type_bedroom
+        return "Nome do Hotel: {}, typo: {}, Categoria: {}".format(self.hotel_owner.nome,self.type_bedroom,self.Caract_bedroom)
+        #return self.Caract_bedroom

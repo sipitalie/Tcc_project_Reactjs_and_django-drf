@@ -18,7 +18,7 @@ estrela=(
     (5,' 5 estrelas'),
 )
 def uploud_image(instance, filename):
-    return "uploads_img_perfil_{}{}".format(instance.nome,filename)
+    return "{}{}".format(instance.nome,filename)
 class Alojamento (models.Model):
     owner=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     nome=models.CharField(max_length=50)

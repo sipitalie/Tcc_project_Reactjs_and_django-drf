@@ -1,23 +1,17 @@
 from django.db import models
 from django.conf import settings
 from alojamento.models import Alojamento
+from quartos.models import Quarto
 
 
 def uploud_image(instance, filename):
-    return "{}{}".format(instance.hotel_owner,filename)
+    return "{}{}_{}".format(instance.quarto.hotel_owner.nome,instance.quarto.id,filename)
 
-
-class Imagens(models.Model):
-    hotel_owner=models.ForeignKey(Alojamento, on_delete=models.CASCADE)
-    perfil=models.BooleanField(default=True)
-    Quarto_Solteiro=models.BooleanField(default=False)
-    Quarto_Duplo=models.BooleanField(default=False)
-    Quarto_Casal=models.BooleanField(default=False)
-    Outros=models.BooleanField(default=False)
-    img=models.ImageField(upload_to=uploud_image)
-
-
+class Gallery(models.Model):
+    #bedroom photo gallery
+    quarto=models.ForeignKey(Quarto, on_delete=models.CASCADE)
+    file=models.ImageField(upload_to=uploud_image)
     def __str__(self):
-        return  str(self.img)#self.img.url
+        return  str(self.file)#self.img.url
 
     

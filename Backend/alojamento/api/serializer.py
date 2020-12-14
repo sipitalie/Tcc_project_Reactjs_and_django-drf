@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from alojamento.models import Alojamento
-from ImagensPerfil.models import Imagens
-from ImagensPerfil.api.serializer import ImgPerfilSerializer
+
 
 
 class AlojamentoSerializer(serializers.ModelSerializer):

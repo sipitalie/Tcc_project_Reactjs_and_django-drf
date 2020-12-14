@@ -6,36 +6,47 @@ import {MdCheckCircle,MdError, MdLink} from 'react-icons/md';
 import {CircularProgressbar} from 'react-circular-progressbar';
 import {Container, FileInfo, Preview} from './styles' ;
 
-export default function FileList(){
+export default function FileList(props){
+   
+    const files = props.files
     return(
         <Container>
-            <li>
-                <FileInfo>
-                    <Preview src="http://127.0.0.1:8000/media/imagens/perfil_home_alojamento/h6.jpeg"/>
+            {files.map(uploadeFile=>(
+                <li key={uploadeFile.id}>
+                    <FileInfo>
+                        <Preview src={uploadeFile.preview}/>
+                        <div>
+                            <strong>profile.png</strong>
+                            <span>
+                                {uploadeFile.readableSze}{''}
+                                {!!uploadeFile.url && (<button onClick={() => {}}>Excluir</button>)}
+                            </span>
+                        </div>
+                    </FileInfo>
                     <div>
-                        <strong>profile.png</strong>
-                        <span>64kb <button onClick={() => {}}>Excluir</button></span>
-                    </div>
-                </FileInfo>
-                <div><CircularProgressbar styles={
-                    {root:{width:24},
-                     path:{stroke:'#7159c1'}
-                     }}
-                     strokeWidth={10}
-                     value={50} />
-                     <a 
-                        href="http://127.0.0.1:8000/media/imagens/perfil_home_alojamento/h6.jpeg"
-                        target="_blank"
-                        rel="noopener norefrrer"
-                    >
-                        <MdLink style={{marginRght:8}} size={24} color ="#222"/>
-
-                    </a>
-                    <MdCheckCircle size={24} color="#78e5d5"/>
-                    <MdError size={24} color="#e57878"/>
+                        {!uploadeFile.uploaded && !uploadeFile.error &&(<CircularProgressbar styles={
+                            {root:{width:24},
+                            path:{stroke:'#7159c1'}
+                             }}
+                            strokeWidth={10}
+                            value={uploadeFile.progress} />
+                        )}
+                        {uploadeFile.url &&(
+                            <a 
+                                href="http://127.0.0.1:8000/media/imagens/perfil_home_alojamento/h6.jpeg"
+                                target="_blank"
+                                rel="noopener norefrrer"
+                            >
+                                <MdLink style={{marginRght:8}} size={24} color ="#222"/>
+                            </a>)}
+                        {uploadeFile.uploaded && <MdCheckCircle size={24} color="#78e5d5"/>}
+                        {uploadeFile.error && <MdError size={24} color="#e57878"/>} 
                     
-                </div>
-            </li>
+                    </div>
+                </li>
+            ))}
         </Container>
     )
 };
+
+//http://127.0.0.1:8000/media/imagens/perfil_home_alojamento/h6.jpeg
