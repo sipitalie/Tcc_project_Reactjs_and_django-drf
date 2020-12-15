@@ -1,43 +1,50 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { FaChevronLeft, FaChevronRight, FaExpand  } from "react-icons/fa";
+import api from '../../service/api';
 import ImgComp from './ImgComp';
 import h1 from '../../assets/h1.jpg';
-import h2 from '../../assets/h2.jpg';
-import h4 from '../../assets/h4.jpg';
-import h5 from '../../assets/h5.jpg';
-import h7 from '../../assets/h7.jpg';
+
 
 
 export default function Slider(props){
-    let sliderArr=[<ImgComp src={h1}/>,<ImgComp src={h7}/>,
-        <ImgComp src={h2}/>, <ImgComp src={h4}/>,
-        <ImgComp src={h5}/>, <ImgComp src={h7}/>]
+    const  id_quarto= props.quarto_id
+       
+    const [listurl, Setlisturls]=useState([]);
     const [x, setX]=useState(0)
-    
+   
+    useEffect( () => {
+        api.get(`api.v1/gallery/${id_quarto}`
+       ).then(response=>{
+            const urls=response.data.map((imgfile)=>{
+                return <ImgComp src={`http://127.0.0.1:8000${imgfile.file}`}/>
+                });
+            Setlisturls(urls);    
+        }).catch((err)=>{
+            console.log(err)})
+        },[id_quarto]); 
     const goLeft=()=>{
-        x=== 0 ? setX( 0 ) : setX(x + 100); //aqui se clicar em left e etiver na primeira imagem ela se mantem na primeira.
+        x=== 0 ? setX( 0 ) : setX(x + 100);
     }
     const goRight=()=>{
-        x=== -100 * (sliderArr.length -1) ? setX(0) : setX(x -100);   
+        x=== -100 * (listurl.length -1) ? setX(0) : setX(x -100);   
     }
-   //const autoPlay=()=>{
+   //const delete=()=>{
    //    setTimeout(() => {goRight(); }, 7000);
    // }
     const expand =()=>{
-        console.info("ola")
-       
+        console.info("ola") 
     }    
     return(
         <div className="Slider">
             {
-                sliderArr.map((item, index)=>{
+                listurl.length > 0 ? (listurl.map((item, index)=>{
                     return(
                         <div key={index} className="Slide" style={{transform:`translateX(${x}%)`}}>
                             {item}
                         </div>
                     )
                 })
-            }
+                ): (<ImgComp src={h1}/>)}
             <span className="span-goLeft" >
                 <button id ="goLeft" onClick={goLeft}>
                     <div ><FaChevronLeft/></div>  
@@ -53,14 +60,16 @@ export default function Slider(props){
                 <button id ="expandSlider" onClick={expand}>
                     <div><FaExpand/></div>  
                 </button> 
-            </span>
-
-
-            
+            </span> 
         </div>
         
     )   
 };
+/*<a 
+                                href={uploadeFile.url}
+                                target="_blank"
+                                rel="noopener norefrrer"
+                            ></a>*/
                     
                     
          

@@ -4,6 +4,7 @@ from django.conf import settings
 from .views import GetImgGallery, UploadImg
     
 urlpatterns = [
-    path('gallery', GetImgGallery.as_view()),
+    #path('gallery/<int:pk>/', GetImgGallery.as_view()),
+    path('gallery/<int:quarto_id>/', GetImgGallery.as_view()),
     path('upload/gallery', UploadImg.as_view()), 
 ]

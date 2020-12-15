@@ -1,22 +1,23 @@
 import React from 'react';
-//import 'react-circular-progressbar/dist/buildStyles';
+import 'react-circular-progressbar/dist/styles.css';
 
 import {MdCheckCircle,MdError, MdLink} from 'react-icons/md';
-
 import {CircularProgressbar} from 'react-circular-progressbar';
 import {Container, FileInfo, Preview} from './styles' ;
 
 export default function FileList(props){
    
     const files = props.files
+
     return(
         <Container>
             {files.map(uploadeFile=>(
+               
                 <li key={uploadeFile.id}>
                     <FileInfo>
                         <Preview src={uploadeFile.preview}/>
                         <div>
-                            <strong>profile.png</strong>
+                            <strong>{uploadeFile.name}</strong>
                             <span>
                                 {uploadeFile.readableSze}{''}
                                 {!!uploadeFile.url && (<button onClick={() => {}}>Excluir</button>)}
@@ -31,9 +32,10 @@ export default function FileList(props){
                             strokeWidth={10}
                             value={uploadeFile.progress} />
                         )}
+                    
                         {uploadeFile.url &&(
                             <a 
-                                href="http://127.0.0.1:8000/media/imagens/perfil_home_alojamento/h6.jpeg"
+                                href={uploadeFile.url}
                                 target="_blank"
                                 rel="noopener norefrrer"
                             >
@@ -48,5 +50,3 @@ export default function FileList(props){
         </Container>
     )
 };
-
-//http://127.0.0.1:8000/media/imagens/perfil_home_alojamento/h6.jpeg

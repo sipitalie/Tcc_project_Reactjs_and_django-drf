@@ -7,9 +7,21 @@ const dragActive =css`
 const dragReject =css`
     border-color: #e57878;
 `;
-export const Content = styled.div`
+export const Container=styled.div.attrs({className:"Container_upload"})`
+    display:flex;
+    height:auto;
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
+    justify-content:center;
+    align-items:center;
+    background:purple;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+`;
+
+export const Content = styled.div`
+    width: 720px;
+    height:auto;
+    max-width: 500px;
     margin: 10px;
     background: #FFF;
     border-radius:4px;
@@ -41,6 +53,4 @@ export const UploadMessage = styled.p`
     justify-content: center;
     align-items: center;
     padding: 15px;
-
-
 `;

@@ -5,7 +5,7 @@ from quartos.models import Quarto
 
 
 def uploud_image(instance, filename):
-    return "{}{}_{}".format(instance.quarto.hotel_owner.nome,instance.quarto.id,filename)
+    return "{}{}".format(instance.id,filename)
 
 class Gallery(models.Model):
     #bedroom photo gallery

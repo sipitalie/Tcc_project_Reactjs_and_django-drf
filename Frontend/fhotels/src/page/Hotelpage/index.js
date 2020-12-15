@@ -1,6 +1,9 @@
 import { useParams, Link, Route, useRouteMatch } from 'react-router-dom';
 import React,{ useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+
+
 import { alojamentos_details } from '../../store/fetchActions';
 
 
@@ -13,17 +16,14 @@ import QuartosHotel from './QuartosHotelPage'
 
 import ButtonUploadImg from '../../components/Upload/Profile_Picture/buttonclikupload';
 import UploadImg from '../../components/Upload/Profile_Picture/Upload';
-import Backdrop from '../../Layout/Header/Backdrop/Backdrop';
-//import {a_Seguirhotel} from '../../store/fetchActions';
-//import InfoCard from '../../components/InfoCard';
+
 import ImgComp from './ImgComp';
 import h2 from '../../assets/h5.jpg';
 import './index.css';
 
 export default function HotelPage(){
     let match=useRouteMatch();
-    const [navMenu,SetnavMenu]=useState(false)
-    const[uploadOpen, SetuploadOpen]=useState(false);
+    const [navMenu,SetnavMenu]=useState(false);
     const {id } =useParams();
     const dispatch =useDispatch();
 
@@ -49,18 +49,12 @@ export default function HotelPage(){
     
     const alojamentodetail= useSelector((state) =>(state.Alojamento));   
     alojamentodetail.map((alojamento, index)=>{ dados=alojamento } )
-    //console.log(dados.id)
-    const abrir =()=>{
-        //ra
-    }
 
-    const uploadonclick= () => SetuploadOpen(!uploadOpen);
-    const backuploadOpenclick= () => SetuploadOpen(!uploadOpen)
     return(
             <div className="class-PageHotel">
                 <header className="header-perfil">
                     <div className="class-foto">
-                        <ButtonUploadImg click={uploadonclick}/>
+                        <Link to={`${match.url}/upload/image/perfil/`}><ButtonUploadImg/></Link> 
                         <ImgComp src={h2}/>
                     </div>
                     <div className="class-content">
@@ -80,10 +74,18 @@ export default function HotelPage(){
                             <li><Link to={`${match.url}/mapa`}  >Mapa</Link></li>    
                         </ul>      
                 </div>
-                <UploadImg show={uploadOpen}/>
-                {uploadOpen && <Backdrop click={backuploadOpenclick}/>}
+                
+               
                 
                 <div className="rendering">
+                        <Route path={`${match.path}/upload/image/perfil/`} render={()=>{
+                            return(
+                                <>
+                                    <div>UploadImg</div>
+                                    <UploadImg/> 
+                                </>
+                            )
+                        }}/>
                         <Route path={`${match.path}/eventos`} render={()=>{
                             return(
                                 <>
@@ -115,7 +117,8 @@ export default function HotelPage(){
                                     <QuartosHotel/>   
                                 </>
                             )
-                        }}/>         
+                        }}/>
+                                
                 </div>                                        
             </div>      
     );

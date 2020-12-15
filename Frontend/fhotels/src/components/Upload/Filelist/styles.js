@@ -5,7 +5,6 @@ import styled ,{css}from 'styled-components';
 
 export const Container = styled.ul`
     margin-top:10px;
-
     li{
         display:flex;
         justify-content: space-between;
@@ -19,11 +18,15 @@ export const Container = styled.ul`
 `;
 
 export const FileInfo = styled.div`
+    width: 88%;
     display:flex;
     align-items: center;
     div{
         display:flex;
         flex-direction:column;
+        strong{
+            font-size:10px;
+        }
         span{
             font-size:10;
             color:#999;
