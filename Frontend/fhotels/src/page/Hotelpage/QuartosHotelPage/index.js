@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {quartos_hotel} from '../../../store/fetchActions';
 import QuartosCard from '../../../components/QuartoCard';
 import InfoCard from '../../../components/InfoCard';
+
 import './index.css'
 
 
@@ -19,7 +20,7 @@ export default function QuartosHotel(){
     return(
         <>
             {lengthquarto>0?<div className="QuartosHotelPage">                
-            {Quartos.map((quartos, index)=>  <QuartosCard key ={index} Quarto={quartos} />)}                
+            {Quartos.map((quartos, index)=>  <QuartosCard key ={index} Quarto={quartos} idhotel={id} />)}                
             </div>:<InfoCard info='Sem quartos registrados'/>
             }
                        

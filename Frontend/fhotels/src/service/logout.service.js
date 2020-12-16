@@ -6,6 +6,7 @@ export default function Logout(){
     localStorage.removeItem('email');
     localStorage.removeItem('id');
     localStorage.removeItem('username');
+    localStorage.removeItem('isAdmin');
     window.location.reload();
     return logout();
 }

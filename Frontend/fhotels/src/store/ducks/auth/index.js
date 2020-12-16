@@ -1,8 +1,8 @@
 import {createAction, createReducer} from '@reduxjs/toolkit';
 
 const INITIAL_STATE={
-    isAuthenticated: localStorage.getItem('token', 'email')
-    //isSeguidor: 
+    isAuthenticated: localStorage.getItem('token', 'email'),
+    //sisSeguidor: 
 }
 export const register = createAction('REGISTER')
 export const forgotpassword = createAction('FORGOTPASSWORD')

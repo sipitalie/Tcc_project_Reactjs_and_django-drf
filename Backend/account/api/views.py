@@ -82,7 +82,6 @@ class login_token_view(APIView):
             data['id']=account.pk
             data['email']=email
             data['token']=token.key
-            print(Alojamento.objects.filter(owner=account.pk).values('id'))
             data['isAdmin']=Alojamento.objects.filter(owner=account.pk).values('id')
             return Response(data, status=status.HTTP_200_OK)
         else:
