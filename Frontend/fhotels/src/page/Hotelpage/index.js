@@ -12,7 +12,11 @@ import QuartosHotel from './QuartosHotelPage'
 
 import ButtonUploadImg from '../../components/Upload/Profile_Picture/buttonclikupload';
 import UploadImg from '../../components/Upload/Profile_Picture/Upload';
-import  IsAdminHotel from '../../service/isAdmin.service';
+import IsAdminHotel from '../../service/isAdmin.service';
+import CreateEvent  from '../../components/EventoCard/CreateEventCard/';
+import CreateBadroon from '../../components/QuartoCard/CreateBadroon';
+import CreatePromo from '../../components/PromoCard/CreatePromo';
+import CreateEvaluation  from '../../components/AvalCard/CreateEvaluetion';
 
 import ImgComp from './ImgComp';
 import h2 from '../../assets/h5.jpg';
@@ -30,6 +34,7 @@ export default function HotelPage(){
 
     useEffect( () => {
         dispatch(alojamentos_details(id));  
+        
 
         //isAuthenticated && dispatch(a_Seguirhotel(localStorage.getItem('id')));
     },[dispatch, id]);
@@ -48,13 +53,17 @@ export default function HotelPage(){
     
     
     const alojamentodetail= useSelector((state) =>(state.Alojamento));   
-    alojamentodetail.map((alojamento, index)=>{return dados=alojamento } )
+    alojamentodetail.map((alojamento, index)=>{return dados=alojamento })
 
+   
+  
+
+    
     return(
             <div className="class-PageHotel">
                 <header className="header-perfil">
                     <div className="class-foto">
-                        {IsAdminHotel(id)&&(<Link to={`${match.url}/upload/image/perfil/`}><ButtonUploadImg/></Link>)}
+                       { IsAdminHotel(dados.owner) &&<Link to={`${match.url}/upload/image/perfil/`}><ButtonUploadImg/></Link>}
                         <ImgComp src={h2}/>
                     </div>
                     <div className="class-content">
@@ -82,6 +91,7 @@ export default function HotelPage(){
                             return(
                                 <>
                                     <div>EVENTOS</div>
+                                    {IsAdminHotel(dados.owner)&&(<CreateEvent idhotel={id}/>)}
                                     <EventosHotel/> 
                                 </>
                             )
@@ -94,18 +104,12 @@ export default function HotelPage(){
                                 </>
                             )
                         }}/>
-                       {/* <Route exact path= {`${match.path}/eventos`} render={()=>{
-                            return(
-                                <>
-                                    <div>EVENTOS</div>
-                                    <EventosHotel/> 
-                                </>
-                            )
-                        }}/>*/}
+
                          <Route path={`${match.path}/promoções`} render={()=>{
                             return(
                                 <>
                                     <div>Promoções</div>
+                                    {IsAdminHotel(dados.owner)&&(<CreatePromo idhotel={id}/>)}
                                     <PromosHotel/>
                                 </>
                             )
@@ -114,6 +118,7 @@ export default function HotelPage(){
                             return(
                                 <>
                                     <div>Avaliações</div>
+                                    {!IsAdminHotel(dados.owner)&&(<CreateEvaluation idhotel={id}/>)}
                                     <AvaliacoesHotel/>
                                 </>
                             )
@@ -122,7 +127,8 @@ export default function HotelPage(){
                             return(
                                 <>
                                     <div>Quartos</div>
-                                    <QuartosHotel />   
+                                    {IsAdminHotel(dados.owner)&&(<CreateBadroon idhotel={id}/>)}
+                                    <QuartosHotel IsAdmin={IsAdminHotel(dados.owner)} />   
                                 </>
                             )
                         }}/>

@@ -8,7 +8,7 @@ import InfoCard from '../../../components/InfoCard';
 import './index.css'
 
 
-export default function QuartosHotel(){ 
+export default function QuartosHotel({IsAdmin}){ 
     const Quartos= useSelector((state) =>(state.Quartos));
     const dispatch =useDispatch();
     const { id } =useParams();
@@ -20,7 +20,7 @@ export default function QuartosHotel(){
     return(
         <>
             {lengthquarto>0?<div className="QuartosHotelPage">                
-            {Quartos.map((quartos, index)=>  <QuartosCard key ={index} Quarto={quartos} idhotel={id} />)}                
+            {Quartos.map((quartos, index)=>  <QuartosCard key ={index} Quarto={quartos} AdimLoged={IsAdmin} />)}                
             </div>:<InfoCard info='Sem quartos registrados'/>
             }
                        

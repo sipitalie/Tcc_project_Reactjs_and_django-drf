@@ -1,8 +1,9 @@
 .class-PageHotel{
     width: 750px;
-    height: 450px; 
+    height: auto; 
     margin-left: auto;
     margin-right: auto;
+   
     background-color:white; 
     border-radius: 8px;
     padding: 0 24px;             

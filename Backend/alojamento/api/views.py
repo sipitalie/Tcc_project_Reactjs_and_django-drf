@@ -45,6 +45,7 @@ class AlojamentoDetail(APIView):
             raise Http404
 
     def get(self, request, pk, format=None): 
+        data={}
         alojamento = self.get_object(pk)
         serializer = AlojamentoSerializer(alojamento)
         return Response(serializer.data)
